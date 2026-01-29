@@ -1,11 +1,15 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "fs/promises";
+import { join } from "path";
 
-export const runtime = "edge";
 export const alt = "Ampora - AI-Powered Electrical Intelligence";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
+  const logoData = await readFile(join(process.cwd(), "public", "ampora-logo.png"));
+  const logoBase64 = `data:image/png;base64,${logoData.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -58,28 +62,16 @@ export default async function Image() {
             gap: 32,
           }}
         >
-          {/* Lightning bolt icon */}
-          <div
+          {/* App logo */}
+          <img
+            src={logoBase64}
+            width={140}
+            height={140}
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 120,
-              height: 120,
               borderRadius: 32,
-              background: "linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)",
               boxShadow: "0 0 60px rgba(139, 92, 246, 0.5), 0 25px 50px rgba(0, 0, 0, 0.5)",
             }}
-          >
-            <svg
-              width="64"
-              height="64"
-              viewBox="0 0 24 24"
-              fill="white"
-            >
-              <path d="M13 2L4.5 12.5h5l-1.5 7.5 8.5-10.5h-5L13 2z" />
-            </svg>
-          </div>
+          />
 
           {/* App name */}
           <div
