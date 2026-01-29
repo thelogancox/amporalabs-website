@@ -30,20 +30,11 @@ export const metadata: Metadata = {
     siteName: "Ampora",
     title: "Ampora | AI-Powered Electrical Intelligence",
     description: "Your AI-powered field companion for electrical work. NEC code answers, pro calculators, photo analysis & more.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Ampora - AI Electrical Intelligence",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ampora | AI-Powered Electrical Intelligence",
     description: "Your AI-powered field companion for electrical work.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -66,8 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        {/* Icons are auto-generated from app/icon.svg and app/apple-icon.tsx */}
       </head>
       <body
         className={`${syne.variable} ${outfit.variable} font-body antialiased bg-black text-white`}
