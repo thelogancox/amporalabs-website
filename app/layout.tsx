@@ -140,10 +140,7 @@ export const metadata: Metadata = {
     canonical: "https://amporalabs.com",
   },
   verification: {
-    // Add your verification codes here when ready
-    // google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
+    google: "ZyKjyOrD-R9DNsuhW92GCS5wc1OvzeeDmdz5XFp3fRg",
   },
   other: {
     "apple-itunes-app": "app-id=6753693522",
