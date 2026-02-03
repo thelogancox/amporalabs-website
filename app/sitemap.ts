@@ -7,6 +7,11 @@ const blogPosts = [
   { slug: 'electrical-inspection-checklist', date: '2025-01-05' },
   { slug: 'wire-sizing-guide-nec-ampacity-tables', date: '2024-12-28' },
   { slug: 'ai-tools-for-electricians', date: '2024-12-20' },
+  { slug: 'nec-article-250-grounding-guide', date: '2025-01-20' },
+  { slug: 'conduit-fill-calculation-guide', date: '2025-01-22' },
+  { slug: 'thhn-vs-thwn-wire-differences', date: '2025-01-25' },
+  { slug: 'electrical-panel-troubleshooting', date: '2025-01-28' },
+  { slug: 'nec-service-entrance-requirements', date: '2025-02-01' },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
