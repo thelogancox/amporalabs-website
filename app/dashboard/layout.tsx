@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Dashboard | Ampora",
@@ -12,8 +13,10 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-black text-white">
-      {children}
-    </div>
+    <SessionProvider>
+      <div className="min-h-screen bg-black text-white">
+        {children}
+      </div>
+    </SessionProvider>
   );
 }

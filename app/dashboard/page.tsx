@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useSession } from "next-auth/react";
 import { Eye, Users, Activity, Download, AlertCircle } from "lucide-react";
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
 import { MetricCard } from "@/components/dashboard/MetricCard";
@@ -46,6 +47,7 @@ interface DownloadData {
 }
 
 export default function DashboardPage() {
+  const { data: session } = useSession();
   const [period, setPeriod] = useState("7daysAgo");
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
   const [blog, setBlog] = useState<BlogData | null>(null);
@@ -128,6 +130,7 @@ export default function DashboardPage() {
         onPeriodChange={handlePeriodChange}
         onRefresh={handleRefresh}
         refreshing={refreshing}
+        userEmail={session?.user?.email}
       />
 
       {/* Error Banner */}

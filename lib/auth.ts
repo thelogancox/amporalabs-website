@@ -1,52 +1,33 @@
-import { SignJWT, jwtVerify } from 'jose';
-import bcrypt from 'bcryptjs';
+import NextAuth from "next-auth";
+import Google from "next-auth/providers/google";
 
-const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || 'fallback-secret-change-me');
-const COOKIE_NAME = 'dashboard_session';
+// Only these emails can access the dashboard
+const ALLOWED_EMAILS = [
+  "logan@korvatech.com",
+  "cwilliams@korvatech.com",
+];
 
-export interface SessionPayload {
-  authenticated: boolean;
-  iat: number;
-  exp: number;
-}
-
-export async function verifyPassword(password: string): Promise<boolean> {
-  const hash = process.env.DASHBOARD_PASSWORD_HASH;
-  if (!hash) {
-    console.error('DASHBOARD_PASSWORD_HASH not set');
-    return false;
-  }
-  return bcrypt.compare(password, hash);
-}
-
-export async function createSessionToken(): Promise<string> {
-  const token = await new SignJWT({ authenticated: true })
-    .setProtectedHeader({ alg: 'HS256' })
-    .setIssuedAt()
-    .setExpirationTime('24h')
-    .sign(JWT_SECRET);
-
-  return token;
-}
-
-export async function verifySessionToken(token: string): Promise<SessionPayload | null> {
-  try {
-    const { payload } = await jwtVerify(token, JWT_SECRET);
-    return payload as unknown as SessionPayload;
-  } catch {
-    return null;
-  }
-}
-
-export function getSessionCookieOptions() {
-  return {
-    name: COOKIE_NAME,
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict' as const,
-    path: '/',
-    maxAge: 60 * 60 * 24, // 24 hours
-  };
-}
-
-export { COOKIE_NAME };
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
+  ],
+  pages: {
+    signIn: "/dashboard/login",
+    error: "/dashboard/login",
+  },
+  callbacks: {
+    async signIn({ user }) {
+      // Only allow specific emails
+      if (!user.email || !ALLOWED_EMAILS.includes(user.email.toLowerCase())) {
+        return false;
+      }
+      return true;
+    },
+    async session({ session }) {
+      return session;
+    },
+  },
+});
