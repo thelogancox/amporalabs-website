@@ -365,6 +365,8 @@ export default function NECArticle210Page() {
               <div className="flex justify-center">
                 <a
                   href="https://apps.apple.com/us/app/ampora/id6753693522"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"
                 >
                   Download Ampora Free

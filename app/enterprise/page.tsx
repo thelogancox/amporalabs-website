@@ -60,14 +60,16 @@ export default function EnterprisePage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="mailto:enterprise@amporalabs.com?subject=Ampora Enterprise Inquiry"
+              href="mailto:info@korvatech.com?subject=Ampora Enterprise Inquiry"
               className="px-8 py-4 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-500 transition-colors"
             >
               Contact Sales
             </a>
             <a
               href="https://apps.apple.com/us/app/ampora/id6753693522"
-              className="px-8 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-colors"
+             target="_blank"
+             rel="noopener noreferrer"
+                            className="px-8 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-colors"
             >
               Try Free First
             </a>
@@ -298,14 +300,16 @@ export default function EnterprisePage() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="mailto:enterprise@amporalabs.com?subject=Ampora Enterprise Inquiry"
+                href="mailto:info@korvatech.com?subject=Ampora Enterprise Inquiry"
                 className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"
               >
                 Contact Sales
               </a>
               <a
                 href="https://apps.apple.com/us/app/ampora/id6753693522"
-                className="px-8 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-colors"
+               target="_blank"
+               rel="noopener noreferrer"
+                                className="px-8 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-colors"
               >
                 Download Free Trial
               </a>

@@ -61,9 +61,9 @@ export default function Pricing() {
           {/* CTA */}
           <a
             href="https://apps.apple.com/us/app/ampora/id6753693522"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-ampora-500 text-white font-semibold text-lg hover:bg-ampora-600 transition-colors"
+           target="_blank"
+           rel="noopener noreferrer"
+                        className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-ampora-500 text-white font-semibold text-lg hover:bg-ampora-600 transition-colors"
           >
             <Zap className="w-5 h-5" />
             Start Free Trial

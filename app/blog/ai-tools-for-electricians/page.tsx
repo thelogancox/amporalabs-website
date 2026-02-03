@@ -309,6 +309,8 @@ export default function AIToolsForElectriciansPage() {
                 </Link>
                 <a
                   href="https://apps.apple.com/us/app/ampora/id6753693522"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors text-center"
                 >
                   Download Free

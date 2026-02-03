@@ -217,9 +217,9 @@ export default function Testimonials() {
         <div className="text-center mt-8">
           <a
             href="https://apps.apple.com/us/app/ampora/id6753693522"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-ampora-400 hover:text-ampora-300 transition-colors underline underline-offset-4"
+           target="_blank"
+           rel="noopener noreferrer"
+                        className="text-sm text-ampora-400 hover:text-ampora-300 transition-colors underline underline-offset-4"
           >
             View all reviews on the App Store
           </a>

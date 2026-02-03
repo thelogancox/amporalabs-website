@@ -63,9 +63,9 @@ export default function Calculators() {
         <div className="text-center mt-12">
           <a
             href="https://apps.apple.com/us/app/ampora/id6753693522"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary inline-flex"
+           target="_blank"
+           rel="noopener noreferrer"
+                        className="btn-primary inline-flex"
           >
             <Calculator className="w-5 h-5" />
             Get All Calculators

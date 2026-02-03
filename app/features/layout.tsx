@@ -80,6 +80,8 @@ export default function FeaturesLayout({
           </p>
           <a
             href="https://apps.apple.com/us/app/ampora/id6753693522"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"
           >
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">

@@ -99,9 +99,9 @@ export default function Footer() {
 
                 <a
                   href="https://apps.apple.com/us/app/ampora/id6753693522"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-4 px-6 py-4 rounded-2xl bg-white text-black font-semibold text-lg group hover:bg-white/90 transition-all hover:scale-105"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-4 px-6 py-4 rounded-2xl bg-white text-black font-semibold text-lg group hover:bg-white/90 transition-all hover:scale-105"
                 >
                   <img
                     src="/ampora-logo.png"
@@ -255,9 +255,9 @@ export default function Footer() {
             {/* App Store CTA with Ampora logo */}
             <a
               href="https://apps.apple.com/us/app/ampora/id6753693522"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-4 px-5 py-2.5 rounded-xl bg-white text-black font-semibold hover:bg-white/90 transition-all hover:scale-105"
+             target="_blank"
+             rel="noopener noreferrer"
+                            className="inline-flex items-center gap-4 px-5 py-2.5 rounded-xl bg-white text-black font-semibold hover:bg-white/90 transition-all hover:scale-105"
             >
               <img
                 src="/ampora-logo.png"
