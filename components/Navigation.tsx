@@ -57,11 +57,11 @@ export default function Navigation() {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { label: "Features", href: "#features" },
-    { label: "Calculators", href: "#calculators" },
-    { label: "Photo Analysis", href: "#photo-scan" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" },
+    { label: "Calculators", href: "/calculators" },
+    { label: "AI Assistant", href: "/features/ai-assistant" },
+    { label: "NEC Code", href: "/features/nec-code-reference" },
+    { label: "Blog", href: "/blog" },
+    { label: "For Contractors", href: "/enterprise" },
   ];
 
   return (
@@ -78,7 +78,7 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3 group">
+            <a href="/" className="flex items-center gap-3 group">
               <div className="relative w-10 h-10 flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-ampora-500 to-ampora-700 rounded-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 blur-lg" />
                 <div className="relative bg-gradient-to-br from-ampora-500 to-ampora-600 rounded-xl p-2 shadow-lg shadow-ampora-500/20 group-hover:shadow-ampora-500/40 transition-shadow duration-300">

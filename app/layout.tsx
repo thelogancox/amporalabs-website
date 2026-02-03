@@ -7,6 +7,7 @@ import {
   WebsiteJsonLd,
   FAQJsonLd,
 } from "@/components/JsonLd";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -30,6 +31,12 @@ export const metadata: Metadata = {
   },
   description: "Free electrical calculator app with AI assistant for electricians. Voltage drop calculator, wire sizing calculator, conduit fill calculator, arc flash calculator, load calculation, motor sizing, and NEC code reference. The best electrician app for field work.",
   keywords: [
+    // Primary brand + product keywords
+    "Ampora Labs",
+    "Ampora AI",
+    "Ampora electrician app",
+    "Ampora electrical assistant",
+    "Ampora NEC assistant",
     // Primary electrical terms
     "electrical calculator",
     "electrician app",
@@ -37,12 +44,26 @@ export const metadata: Metadata = {
     "electrician calculator",
     "electrical AI",
     "AI electrician",
+    "AI electrician app",
+    "AI electrical assistant",
+    "AI for electricians",
+    // High-intent electrician searches
+    "electrical code assistant",
+    "NEC code assistant",
+    "NEC AI tool",
+    "electrical code lookup tool",
+    "electrician code reference app",
+    "electrical troubleshooting app",
+    "electrical load calculation tool",
+    "breaker sizing calculator",
     // Voltage drop
     "voltage drop calculator",
     "voltage drop calculation",
     "voltage drop formula",
     "calculate voltage drop",
     "electrical voltage drop",
+    "voltage drop calculator for single-phase circuits",
+    "voltage drop calculator for three-phase circuits",
     // Wire sizing
     "wire sizing calculator",
     "wire size calculator",
@@ -51,12 +72,14 @@ export const metadata: Metadata = {
     "wire gauge calculator",
     "AWG calculator",
     "wire ampacity calculator",
+    "wire sizing calculator NEC",
     // Conduit fill
     "conduit fill calculator",
     "conduit sizing calculator",
     "conduit fill calculation",
     "NEC conduit fill",
     "electrical conduit calculator",
+    "conduit fill calculator NEC",
     // Arc flash
     "arc flash calculator",
     "arc flash analysis",
@@ -77,13 +100,35 @@ export const metadata: Metadata = {
     "motor full load current",
     "motor protection sizing",
     "motor HP calculator",
-    // NEC code
+    // NEC code - expanded
     "NEC code",
     "NEC code lookup",
     "NEC reference",
     "NEC 2023",
+    "NEC 2026",
     "National Electrical Code",
     "electrical code reference",
+    "NEC code explanation",
+    "National Electrical Code assistant",
+    "NEC article explanations",
+    "NEC compliance tool",
+    "electrical code interpretation",
+    "electrical code questions",
+    // AI + software focused keywords
+    "AI assistant for trades",
+    "AI tools for electricians",
+    "AI for construction trades",
+    "AI field assistant",
+    "AI job site assistant",
+    "AI compliance assistant",
+    "AI technical assistant",
+    // Job site / practical use keywords
+    "does this meet electrical code",
+    "electrical inspection prep",
+    "electrician troubleshooting help",
+    "on-site electrical support",
+    "job site electrical questions",
+    "electrical work safety tool",
     // General electrician terms
     "electrician tools",
     "electrician reference",
@@ -93,10 +138,31 @@ export const metadata: Metadata = {
     "ampacity calculator",
     "electrical troubleshooting",
     "panel photo analysis",
+    // App + mobile intent keywords
+    "electrician mobile app",
+    "electrical reference app",
+    "electrician helper app",
+    "electrical calculator app",
+    "electrician AI app",
+    // Long-tail / low-competition keywords
+    "AI assistant for NEC code",
+    "electrician AI code checker",
+    "AI tool for electrical inspections",
+    "electrical AI copilot",
+    "AI for electrical contractors",
+    "AI NEC reference",
+    // B2B / commercial keywords
+    "electrical contractor software",
+    "electrical compliance software",
+    "AI for electrical companies",
+    "field service AI tools",
+    "trade automation software",
     // App store terms
     "best electrician app",
     "electrical app iOS",
-    "electrician iPhone app"
+    "electrician iPhone app",
+    "best app for electricians",
+    "free electrical calculator app"
   ],
   authors: [{ name: "Ampora Labs" }],
   creator: "Ampora Labs",
@@ -171,6 +237,7 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${outfit.variable} font-body antialiased bg-black text-white`}
       >
+        <GoogleAnalytics />
         <div className="noise-overlay" aria-hidden="true" />
         {children}
       </body>
