@@ -3,13 +3,41 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Ampora Labs",
-    "alternateName": "Ampora",
+    "alternateName": ["Ampora", "Ampora App", "Ampora Electrical", "Ampora AI"],
     "url": "https://amporalabs.com",
-    "logo": "https://amporalabs.com/ampora-logo.png",
-    "description": "AI-powered electrical intelligence platform providing professional calculators, NEC code reference, and smart troubleshooting tools for electricians and electrical engineers.",
+    "logo": "https://amporalabs.com/icon-512.png",
+    "image": "https://amporalabs.com/icon-512.png",
+    "description": "Ampora is an AI-powered electrical intelligence platform providing professional calculators, NEC code reference, and smart troubleshooting tools for electricians and electrical engineers.",
+    "foundingDate": "2024",
+    "slogan": "AI-Powered Electrical Intelligence",
+    "knowsAbout": [
+      "Electrical Engineering",
+      "NEC Code",
+      "Electrical Calculations",
+      "Voltage Drop Calculations",
+      "Wire Sizing",
+      "Conduit Fill",
+      "Arc Flash Analysis",
+      "Electrical Safety",
+      "Electrician Tools"
+    ],
     "sameAs": [
       "https://apps.apple.com/us/app/ampora/id6753693522"
     ],
+    "brand": {
+      "@type": "Brand",
+      "name": "Ampora",
+      "logo": "https://amporalabs.com/icon-512.png",
+      "slogan": "AI-Powered Electrical Intelligence"
+    },
+    "offers": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "SoftwareApplication",
+        "name": "Ampora",
+        "applicationCategory": "UtilitiesApplication"
+      }
+    },
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "info@korvatech.com",
