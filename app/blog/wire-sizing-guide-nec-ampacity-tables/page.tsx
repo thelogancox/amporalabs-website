@@ -35,6 +35,43 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 160" className="w-full h-40 md:h-48" aria-label="Wire sizing comparison showing different AWG gauges">
+      {/* Wire cross-sections */}
+      {[
+        { awg: "14", dia: 8, amps: "15A", color: "#22c55e" },
+        { awg: "12", dia: 12, amps: "20A", color: "#3b82f6" },
+        { awg: "10", dia: 16, amps: "30A", color: "#8b5cf6" },
+        { awg: "8", dia: 22, amps: "40A", color: "#f59e0b" },
+        { awg: "6", dia: 28, amps: "55A", color: "#ef4444" },
+      ].map((wire, i) => (
+        <g key={i} transform={`translate(${60 + i * 70}, 60)`}>
+          {/* Outer insulation */}
+          <circle cx="0" cy="0" r={wire.dia + 6} fill="#374151" stroke="#6b7280" strokeWidth="1"/>
+          {/* Copper conductor */}
+          <circle cx="0" cy="0" r={wire.dia} fill="#b87333" stroke="#8b5a2b" strokeWidth="1"/>
+          {/* Labels */}
+          <text x="0" y={wire.dia + 25} textAnchor="middle" fill="#fff" fontSize="10" fontWeight="bold">#{wire.awg}</text>
+          <text x="0" y={wire.dia + 38} textAnchor="middle" fill={wire.color} fontSize="9">{wire.amps}</text>
+        </g>
+      ))}
+
+      {/* Title */}
+      <text x="200" y="20" textAnchor="middle" fill="#9ca3af" fontSize="10">Wire Gauge vs Ampacity (75°C Copper)</text>
+
+      {/* Scale indicator */}
+      <text x="200" y="150" textAnchor="middle" fill="#6b7280" fontSize="8">Larger wire = Higher ampacity</text>
+      <path d="M 80 140 L 320 140" stroke="#6b7280" strokeWidth="1" markerEnd="url(#arrow)"/>
+      <defs>
+        <marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L6,3 z" fill="#6b7280"/>
+        </marker>
+      </defs>
+    </svg>
+  );
+}
+
 export default function WireSizingGuidePage() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -83,6 +120,10 @@ export default function WireSizingGuidePage() {
               Master conductor sizing using NEC ampacity tables. Learn when to apply temperature correction, conduit fill derating, and how to select the right wire gauge for any electrical installation.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-cyan-900/20 to-purple-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Quick Calculator CTA */}
           <div className="bg-cyan-900/30 border border-cyan-500/30 rounded-2xl p-6 mb-12">

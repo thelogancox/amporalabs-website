@@ -34,6 +34,48 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 160" className="w-full h-40 md:h-48" aria-label="Conduit fill cross-section illustration">
+      {/* Conduit cross-sections */}
+      {[
+        { size: '1/2"', fill: 30, conductors: 3, x: 70 },
+        { size: '3/4"', fill: 38, conductors: 5, x: 170 },
+        { size: '1"', fill: 35, conductors: 8, x: 290 },
+      ].map((conduit, i) => (
+        <g key={i} transform={`translate(${conduit.x}, 70)`}>
+          {/* Conduit outer */}
+          <circle cx="0" cy="0" r={25 + i * 10} fill="#1f2937" stroke="#6b7280" strokeWidth="3"/>
+          {/* Conduit inner */}
+          <circle cx="0" cy="0" r={22 + i * 10} fill="#111827"/>
+
+          {/* Conductors */}
+          {Array.from({ length: conduit.conductors }).map((_, j) => {
+            const angle = (j / conduit.conductors) * Math.PI * 2 - Math.PI / 2;
+            const radius = (12 + i * 5);
+            const cx = Math.cos(angle) * radius;
+            const cy = Math.sin(angle) * radius;
+            return (
+              <g key={j}>
+                <circle cx={cx} cy={cy} r={4 + i} fill="#374151" stroke="#6b7280"/>
+                <circle cx={cx} cy={cy} r={3 + i * 0.5} fill="#b87333"/>
+              </g>
+            );
+          })}
+
+          {/* Labels */}
+          <text x="0" y={45 + i * 10} textAnchor="middle" fill="#fff" fontSize="10" fontWeight="bold">{conduit.size} EMT</text>
+          <text x="0" y={58 + i * 10} textAnchor="middle" fill="#22c55e" fontSize="8">{conduit.fill}% fill</text>
+        </g>
+      ))}
+
+      {/* 40% rule indicator */}
+      <rect x="130" y="5" width="140" height="25" rx="4" fill="#22c55e" fillOpacity="0.2" stroke="#22c55e"/>
+      <text x="200" y="22" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">40% Maximum Fill Rule</text>
+    </svg>
+  );
+}
+
 export default function ConduitFillGuidePage() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -82,6 +124,10 @@ export default function ConduitFillGuidePage() {
               Properly sizing conduit prevents pulling problems and heat buildup. This guide walks through NEC Chapter 9 tables step by step.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-cyan-900/20 to-green-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Quick Calculator CTA */}
           <div className="bg-cyan-900/30 border border-cyan-500/30 rounded-2xl p-6 mb-12">

@@ -13,7 +13,14 @@ export async function GET(request: Request) {
 
     if (!overview) {
       return NextResponse.json(
-        { error: 'Analytics not configured or unavailable' },
+        {
+          error: 'Analytics not configured or unavailable',
+          debug: {
+            hasPropertyId: !!process.env.GA_PROPERTY_ID,
+            hasClientEmail: !!process.env.GA_CLIENT_EMAIL,
+            hasPrivateKey: !!process.env.GA_PRIVATE_KEY,
+          }
+        },
         { status: 503 }
       );
     }
@@ -22,10 +29,15 @@ export async function GET(request: Request) {
       overview,
       sources,
     });
-  } catch (error) {
+  } catch (error: unknown) {
+    const err = error as Error & { code?: string; details?: string };
     console.error('Analytics API Error:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch analytics' },
+      {
+        error: 'Failed to fetch analytics',
+        message: err.message,
+        code: err.code,
+      },
       { status: 500 }
     );
   }

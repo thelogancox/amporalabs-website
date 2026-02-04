@@ -34,6 +34,78 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 200" className="w-full h-48 md:h-56" aria-label="Service entrance diagram showing components">
+      {/* Utility pole */}
+      <g transform="translate(30, 20)">
+        <rect x="5" y="0" width="10" height="150" fill="#8b6914"/>
+        <line x1="0" y1="20" x2="40" y2="20" stroke="#374151" strokeWidth="3"/>
+        <line x1="0" y1="30" x2="40" y2="30" stroke="#374151" strokeWidth="3"/>
+        <line x1="0" y1="40" x2="40" y2="40" stroke="#374151" strokeWidth="3"/>
+        <text x="10" y="175" textAnchor="middle" fill="#9ca3af" fontSize="7">Utility</text>
+      </g>
+
+      {/* Service drop lines */}
+      <path d="M 70 25 Q 120 10, 170 50" stroke="#ef4444" strokeWidth="3" fill="none"/>
+      <path d="M 70 35 Q 120 20, 170 60" stroke="#111111" strokeWidth="3" fill="none"/>
+      <path d="M 70 45 Q 120 30, 170 70" stroke="#ef4444" strokeWidth="3" fill="none"/>
+
+      {/* Weatherhead */}
+      <g transform="translate(160, 35)">
+        <path d="M 0 20 L 10 0 L 20 20 Z" fill="#374151" stroke="#6b7280" strokeWidth="2"/>
+        <rect x="5" y="20" width="10" height="30" fill="#374151" stroke="#6b7280" strokeWidth="2"/>
+      </g>
+
+      {/* Service mast */}
+      <rect x="165" y="65" width="10" height="60" fill="#6b7280" stroke="#9ca3af" strokeWidth="1"/>
+
+      {/* Meter base */}
+      <g transform="translate(145, 125)">
+        <rect x="0" y="0" width="50" height="50" rx="4" fill="#1f2937" stroke="#22c55e" strokeWidth="2"/>
+        <circle cx="25" cy="25" r="15" fill="#111827" stroke="#22c55e"/>
+        <text x="25" y="28" textAnchor="middle" fill="#22c55e" fontSize="8">kWh</text>
+        <text x="25" y="60" textAnchor="middle" fill="#9ca3af" fontSize="7">Meter</text>
+      </g>
+
+      {/* Service panel */}
+      <g transform="translate(220, 95)">
+        <rect x="0" y="0" width="80" height="90" rx="4" fill="#1f2937" stroke="#8b5cf6" strokeWidth="2"/>
+        <rect x="10" y="15" width="60" height="65" fill="#111827"/>
+        {/* Main breaker */}
+        <rect x="20" y="22" width="40" height="15" rx="2" fill="#8b5cf6"/>
+        <text x="40" y="33" textAnchor="middle" fill="#fff" fontSize="6">200A MAIN</text>
+        {/* Branch breakers */}
+        {[0, 1, 2].map((i) => (
+          <g key={i}>
+            <rect x="20" y={45 + i * 12} width="15" height="8" rx="1" fill="#374151"/>
+            <rect x="45" y={45 + i * 12} width="15" height="8" rx="1" fill="#374151"/>
+          </g>
+        ))}
+        <text x="40" y="100" textAnchor="middle" fill="#9ca3af" fontSize="7">Panel</text>
+      </g>
+
+      {/* Connection to meter */}
+      <line x1="170" y1="125" x2="170" y2="150" stroke="#ef4444" strokeWidth="3"/>
+      <line x1="195" y1="150" x2="220" y2="140" stroke="#ef4444" strokeWidth="3"/>
+
+      {/* Ground rod */}
+      <g transform="translate(320, 130)">
+        <rect x="5" y="0" width="6" height="50" fill="#b87333"/>
+        <line x1="8" y1="0" x2="260" y2="110" stroke="#22c55e" strokeWidth="2" strokeDasharray="4"/>
+        <text x="8" y="60" textAnchor="middle" fill="#9ca3af" fontSize="7">Ground</text>
+        <text x="8" y="70" textAnchor="middle" fill="#9ca3af" fontSize="7">Rod</text>
+      </g>
+
+      {/* Clearance indicator */}
+      <g transform="translate(100, 100)">
+        <line x1="0" y1="0" x2="0" y2="70" stroke="#f59e0b" strokeWidth="1" strokeDasharray="3"/>
+        <text x="5" y="35" fill="#f59e0b" fontSize="7">10' min</text>
+      </g>
+    </svg>
+  );
+}
+
 export default function ServiceEntranceGuidePage() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -82,6 +154,10 @@ export default function ServiceEntranceGuidePage() {
               Service entrance work requires coordination with the utility and strict code compliance. Here's everything you need to know about NEC Article 230 requirements.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-purple-900/20 to-green-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Table of Contents */}
           <div className="bg-white/5 rounded-2xl p-6 mb-12">

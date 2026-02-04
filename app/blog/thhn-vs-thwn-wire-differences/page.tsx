@@ -34,6 +34,51 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 160" className="w-full h-40 md:h-48" aria-label="THHN vs THWN wire comparison">
+      {/* THHN wire */}
+      <g transform="translate(100, 40)">
+        <rect x="-60" y="-15" width="120" height="80" rx="6" fill="#f59e0b" fillOpacity="0.1" stroke="#f59e0b" strokeDasharray="4"/>
+        <text x="0" y="0" textAnchor="middle" fill="#f59e0b" fontSize="12" fontWeight="bold">THHN</text>
+
+        {/* Wire cross-section */}
+        <circle cx="0" cy="35" r="18" fill="#374151" stroke="#f59e0b" strokeWidth="2"/>
+        <circle cx="0" cy="35" r="14" fill="#1f2937"/>
+        <circle cx="0" cy="35" r="10" fill="#b87333"/>
+
+        {/* Labels */}
+        <text x="0" y="70" textAnchor="middle" fill="#9ca3af" fontSize="7">90°C Dry</text>
+        <text x="0" y="80" textAnchor="middle" fill="#ef4444" fontSize="7">NOT wet rated</text>
+      </g>
+
+      {/* VS */}
+      <text x="200" y="75" textAnchor="middle" fill="#6b7280" fontSize="16" fontWeight="bold">VS</text>
+
+      {/* THWN-2 wire */}
+      <g transform="translate(300, 40)">
+        <rect x="-60" y="-15" width="120" height="80" rx="6" fill="#22c55e" fillOpacity="0.1" stroke="#22c55e" strokeDasharray="4"/>
+        <text x="0" y="0" textAnchor="middle" fill="#22c55e" fontSize="12" fontWeight="bold">THWN-2</text>
+
+        {/* Wire cross-section */}
+        <circle cx="0" cy="35" r="18" fill="#374151" stroke="#22c55e" strokeWidth="2"/>
+        <circle cx="0" cy="35" r="14" fill="#1f2937"/>
+        <circle cx="0" cy="35" r="10" fill="#b87333"/>
+
+        {/* Labels */}
+        <text x="0" y="70" textAnchor="middle" fill="#9ca3af" fontSize="7">90°C Dry & Wet</text>
+        <text x="0" y="80" textAnchor="middle" fill="#22c55e" fontSize="7">Wet location OK</text>
+      </g>
+
+      {/* Best choice indicator */}
+      <g transform="translate(200, 130)">
+        <rect x="-90" y="-8" width="180" height="22" rx="4" fill="#8b5cf6" fillOpacity="0.2" stroke="#8b5cf6"/>
+        <text x="0" y="6" textAnchor="middle" fill="#a78bfa" fontSize="9" fontWeight="bold">Most wire is dual-rated THHN/THWN-2</text>
+      </g>
+    </svg>
+  );
+}
+
 export default function THHNvsTHWNPage() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -82,6 +127,10 @@ export default function THHNvsTHWNPage() {
               Both are common building wire types, but they're rated for different conditions. Here's what electricians need to know about choosing the right wire.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-amber-900/20 to-green-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Article Content */}
           <div className="prose prose-invert prose-lg max-w-none">

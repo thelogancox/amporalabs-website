@@ -35,6 +35,57 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 160" className="w-full h-40 md:h-48" aria-label="AI assistant helping electrician">
+      {/* Phone/device */}
+      <g transform="translate(140, 15)">
+        <rect x="0" y="0" width="120" height="130" rx="12" fill="#1f2937" stroke="#8b5cf6" strokeWidth="2"/>
+        <rect x="8" y="8" width="104" height="100" rx="4" fill="#111827"/>
+
+        {/* Chat interface */}
+        <rect x="14" y="14" width="70" height="20" rx="4" fill="#374151"/>
+        <text x="18" y="27" fill="#9ca3af" fontSize="7">NEC GFCI kitchen?</text>
+
+        <rect x="36" y="40" width="70" height="45" rx="4" fill="#8b5cf6" fillOpacity="0.3"/>
+        <text x="40" y="52" fill="#a78bfa" fontSize="6">Per NEC 210.8(A)(6),</text>
+        <text x="40" y="62" fill="#a78bfa" fontSize="6">kitchen receptacles</text>
+        <text x="40" y="72" fill="#a78bfa" fontSize="6">within 6 ft of sink</text>
+        <text x="40" y="82" fill="#a78bfa" fontSize="6">require GFCI...</text>
+
+        {/* AI indicator */}
+        <circle cx="60" cy="100" r="8" fill="#8b5cf6"/>
+        <text x="60" y="103" textAnchor="middle" fill="#fff" fontSize="7" fontWeight="bold">AI</text>
+      </g>
+
+      {/* Electrician icon */}
+      <g transform="translate(30, 40)">
+        <circle cx="40" cy="25" r="20" fill="#374151"/>
+        <circle cx="40" cy="20" r="12" fill="#d4a574"/>
+        <rect x="25" y="45" width="30" height="40" rx="4" fill="#fbbf24"/>
+        <text x="40" y="100" textAnchor="middle" fill="#9ca3af" fontSize="8">Electrician</text>
+      </g>
+
+      {/* Connection waves */}
+      <g transform="translate(95, 60)">
+        <path d="M 0 20 Q 15 10, 30 20" stroke="#8b5cf6" strokeWidth="2" fill="none" opacity="0.5"/>
+        <path d="M 5 30 Q 20 20, 35 30" stroke="#8b5cf6" strokeWidth="2" fill="none" opacity="0.7"/>
+        <path d="M 10 40 Q 25 30, 40 40" stroke="#8b5cf6" strokeWidth="2" fill="none"/>
+      </g>
+
+      {/* Benefits */}
+      <g transform="translate(280, 30)">
+        <rect x="0" y="0" width="100" height="100" rx="6" fill="#22c55e" fillOpacity="0.1" stroke="#22c55e" strokeDasharray="4"/>
+        <text x="50" y="20" textAnchor="middle" fill="#22c55e" fontSize="8" fontWeight="bold">AI Benefits</text>
+        <text x="10" y="40" fill="#9ca3af" fontSize="7">• Instant code lookup</text>
+        <text x="10" y="55" fill="#9ca3af" fontSize="7">• Smart calculations</text>
+        <text x="10" y="70" fill="#9ca3af" fontSize="7">• Troubleshooting</text>
+        <text x="10" y="85" fill="#9ca3af" fontSize="7">• Photo analysis</text>
+      </g>
+    </svg>
+  );
+}
+
 export default function AIToolsForElectriciansPage() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -83,6 +134,10 @@ export default function AIToolsForElectriciansPage() {
               AI isn't replacing electricians - it's making them more efficient. Learn how AI assistants help with code lookup, calculations, troubleshooting, and on-site problem solving.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-purple-900/20 to-cyan-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Article Content */}
           <div className="prose prose-invert prose-lg max-w-none">

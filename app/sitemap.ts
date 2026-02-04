@@ -12,6 +12,16 @@ const blogPosts = [
   { slug: 'thhn-vs-thwn-wire-differences', date: '2025-01-25' },
   { slug: 'electrical-panel-troubleshooting', date: '2025-01-28' },
   { slug: 'nec-service-entrance-requirements', date: '2025-02-01' },
+  { slug: 'nec-article-240-overcurrent-protection', date: '2025-02-03' },
+  { slug: '3-phase-power-calculations', date: '2025-02-03' },
+  { slug: 'gfci-vs-afci-requirements', date: '2025-02-03' },
+  { slug: 'box-fill-calculations-nec-314', date: '2025-02-03' },
+  { slug: 'motor-circuit-protection-sizing', date: '2025-02-03' },
+  { slug: 'aluminum-vs-copper-wiring', date: '2025-02-03' },
+  { slug: 'residential-load-calculations', date: '2025-02-03' },
+  { slug: 'ev-charger-installation-guide', date: '2025-02-03' },
+  { slug: 'transformer-sizing-guide', date: '2025-02-03' },
+  { slug: 'emergency-standby-power-systems', date: '2025-02-03' },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

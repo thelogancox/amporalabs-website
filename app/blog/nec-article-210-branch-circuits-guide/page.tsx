@@ -35,6 +35,49 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 180" className="w-full h-44 md:h-52" aria-label="Branch circuit diagram showing panel to receptacles">
+      {/* Panel */}
+      <g transform="translate(20, 20)">
+        <rect x="0" y="0" width="60" height="140" rx="4" fill="#1f2937" stroke="#8b5cf6" strokeWidth="2"/>
+        <rect x="8" y="10" width="44" height="120" fill="#111827"/>
+        {/* Breakers */}
+        {[0, 1, 2, 3, 4].map((i) => (
+          <g key={i}>
+            <rect x="12" y={18 + i * 22} width="16" height="16" rx="2" fill={i < 2 ? "#8b5cf6" : "#374151"}/>
+            <rect x="32" y={18 + i * 22} width="16" height="16" rx="2" fill={i < 2 ? "#8b5cf6" : "#374151"}/>
+          </g>
+        ))}
+        <text x="30" y="150" textAnchor="middle" fill="#9ca3af" fontSize="8">PANEL</text>
+      </g>
+
+      {/* Branch circuit lines */}
+      <line x1="80" y1="40" x2="130" y2="40" stroke="#8b5cf6" strokeWidth="3"/>
+      <line x1="130" y1="40" x2="130" y2="140" stroke="#8b5cf6" strokeWidth="3"/>
+
+      {/* Receptacles on circuit */}
+      {[0, 1, 2].map((i) => (
+        <g key={i} transform={`translate(${150 + i * 80}, 110)`}>
+          <rect x="-20" y="-30" width="40" height="60" rx="4" fill="#1f2937" stroke="#22c55e" strokeWidth="2"/>
+          <circle cx="0" cy="-10" r="6" fill="#111827" stroke="#22c55e"/>
+          <circle cx="0" cy="10" r="6" fill="#111827" stroke="#22c55e"/>
+          <rect x="-3" y="-3" width="6" height="6" rx="1" fill="#22c55e"/>
+          <line x1="-20" y1="-30" x2={i === 0 ? -50 : -20} y2={i === 0 ? -70 : -30} stroke="#8b5cf6" strokeWidth="2"/>
+        </g>
+      ))}
+
+      {/* Connection lines to receptacles */}
+      <line x1="130" y1="80" x2="150" y2="80" stroke="#8b5cf6" strokeWidth="2"/>
+      <line x1="150" y1="80" x2="370" y2="80" stroke="#8b5cf6" strokeWidth="2"/>
+
+      {/* Labels */}
+      <text x="200" y="25" textAnchor="middle" fill="#a78bfa" fontSize="10" fontWeight="bold">20A Branch Circuit</text>
+      <text x="200" y="170" textAnchor="middle" fill="#9ca3af" fontSize="9">NEC 210 - Receptacle Requirements</text>
+    </svg>
+  );
+}
+
 export default function NECArticle210Page() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -83,6 +126,10 @@ export default function NECArticle210Page() {
               Everything electricians need to know about NEC Article 210 - from receptacle requirements to GFCI/AFCI protection. A practical breakdown for residential and commercial work.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-purple-900/20 to-cyan-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Table of Contents */}
           <div className="bg-white/5 rounded-2xl p-6 mb-12">

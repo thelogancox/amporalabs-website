@@ -7,11 +7,20 @@ function getAnalyticsClient(): BetaAnalyticsDataClient | null {
   if (analyticsClient) return analyticsClient;
 
   const clientEmail = process.env.GA_CLIENT_EMAIL;
-  const privateKey = process.env.GA_PRIVATE_KEY?.replace(/\\n/g, '\n');
+  let privateKey = process.env.GA_PRIVATE_KEY;
 
   if (!clientEmail || !privateKey) {
-    console.warn('GA4 credentials not configured');
+    console.warn('GA4 credentials not configured:', {
+      hasEmail: !!clientEmail,
+      hasKey: !!privateKey,
+      propertyId: process.env.GA_PROPERTY_ID
+    });
     return null;
+  }
+
+  // Handle both escaped newlines (\n as string) and actual newlines
+  if (privateKey.includes('\\n')) {
+    privateKey = privateKey.replace(/\\n/g, '\n');
   }
 
   analyticsClient = new BetaAnalyticsDataClient({
@@ -110,9 +119,14 @@ export async function getOverviewData(startDate: string = '7daysAgo'): Promise<A
 
     setCache(cacheKey, data);
     return data;
-  } catch (error) {
-    console.error('GA4 API Error:', error);
-    return null;
+  } catch (error: unknown) {
+    const err = error as Error & { code?: string; details?: string };
+    console.error('GA4 API Error:', {
+      message: err.message,
+      code: err.code,
+      details: err.details,
+    });
+    throw error; // Re-throw so we can see the error in the response
   }
 }
 

@@ -35,6 +35,49 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 160" className="w-full h-40 md:h-48" aria-label="Voltage drop illustration showing wire run">
+      {/* Source */}
+      <g transform="translate(30, 50)">
+        <rect x="0" y="0" width="50" height="60" rx="4" fill="#1f2937" stroke="#22c55e" strokeWidth="2"/>
+        <text x="25" y="25" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">120V</text>
+        <text x="25" y="40" textAnchor="middle" fill="#9ca3af" fontSize="8">SOURCE</text>
+      </g>
+
+      {/* Wire run with voltage gradient */}
+      <defs>
+        <linearGradient id="voltageGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#22c55e"/>
+          <stop offset="100%" stopColor="#eab308"/>
+        </linearGradient>
+      </defs>
+      <line x1="80" y1="70" x2="280" y2="70" stroke="url(#voltageGradient)" strokeWidth="6" strokeLinecap="round"/>
+      <line x1="80" y1="90" x2="280" y2="90" stroke="#6b7280" strokeWidth="4" strokeLinecap="round"/>
+
+      {/* Distance marker */}
+      <line x1="80" y1="120" x2="280" y2="120" stroke="#6b7280" strokeWidth="1"/>
+      <line x1="80" y1="115" x2="80" y2="125" stroke="#6b7280" strokeWidth="1"/>
+      <line x1="280" y1="115" x2="280" y2="125" stroke="#6b7280" strokeWidth="1"/>
+      <text x="180" y="135" textAnchor="middle" fill="#9ca3af" fontSize="9">Distance (D) = 150 ft</text>
+
+      {/* Load */}
+      <g transform="translate(290, 50)">
+        <rect x="0" y="0" width="70" height="60" rx="4" fill="#1f2937" stroke="#eab308" strokeWidth="2"/>
+        <text x="35" y="25" textAnchor="middle" fill="#eab308" fontSize="10" fontWeight="bold">108V</text>
+        <text x="35" y="40" textAnchor="middle" fill="#9ca3af" fontSize="8">AT LOAD</text>
+      </g>
+
+      {/* Voltage drop indicator */}
+      <rect x="130" y="15" width="100" height="25" rx="4" fill="#ef4444" fillOpacity="0.2" stroke="#ef4444"/>
+      <text x="180" y="32" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">VD = 12V (10%)</text>
+
+      {/* Wire gauge label */}
+      <text x="180" y="60" textAnchor="middle" fill="#9ca3af" fontSize="8">#12 AWG Copper</text>
+    </svg>
+  );
+}
+
 export default function VoltageDropGuidePage() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -95,6 +138,10 @@ export default function VoltageDropGuidePage() {
               Master voltage drop calculations for any circuit. Learn when to upsize conductors, understand NEC recommendations, and avoid inspection issues on long wire runs.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-green-900/20 to-yellow-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Quick Calculator CTA */}
           <div className="bg-purple-900/30 border border-purple-500/30 rounded-2xl p-6 mb-12">

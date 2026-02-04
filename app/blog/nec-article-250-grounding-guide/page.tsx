@@ -34,6 +34,72 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 180" className="w-full h-44 md:h-52" aria-label="Grounding electrode system diagram">
+      {/* Service panel */}
+      <g transform="translate(150, 20)">
+        <rect x="0" y="0" width="100" height="80" rx="4" fill="#1f2937" stroke="#22c55e" strokeWidth="2"/>
+        <rect x="10" y="10" width="80" height="60" fill="#111827"/>
+        <rect x="20" y="20" width="25" height="10" rx="1" fill="#8b5cf6"/>
+        <rect x="55" y="20" width="25" height="10" rx="1" fill="#8b5cf6"/>
+        <rect x="20" y="35" width="25" height="10" rx="1" fill="#374151"/>
+        <rect x="55" y="35" width="25" height="10" rx="1" fill="#374151"/>
+        <text x="50" y="60" textAnchor="middle" fill="#22c55e" fontSize="7">SERVICE</text>
+      </g>
+
+      {/* Main bonding jumper */}
+      <rect x="180" y="100" width="40" height="8" rx="2" fill="#22c55e"/>
+      <text x="200" y="95" textAnchor="middle" fill="#9ca3af" fontSize="6">MBJ</text>
+
+      {/* GEC */}
+      <line x1="200" y1="108" x2="200" y2="140" stroke="#22c55e" strokeWidth="4"/>
+      <text x="215" y="125" fill="#22c55e" fontSize="7">GEC</text>
+
+      {/* Ground electrodes */}
+      {/* Ground rod */}
+      <g transform="translate(80, 110)">
+        <rect x="5" y="0" width="6" height="60" fill="#b87333"/>
+        <rect x="0" y="55" width="16" height="15" fill="#8b6914" opacity="0.5"/>
+        <text x="8" y="80" textAnchor="middle" fill="#9ca3af" fontSize="6">Ground</text>
+        <text x="8" y="88" textAnchor="middle" fill="#9ca3af" fontSize="6">Rod</text>
+      </g>
+
+      {/* Water pipe */}
+      <g transform="translate(130, 130)">
+        <rect x="0" y="0" width="40" height="8" rx="4" fill="#6b7280"/>
+        <rect x="-15" y="-5" width="70" height="18" fill="#8b6914" opacity="0.3"/>
+        <text x="20" y="25" textAnchor="middle" fill="#9ca3af" fontSize="6">Water Pipe</text>
+      </g>
+
+      {/* Ufer ground */}
+      <g transform="translate(230, 130)">
+        <rect x="0" y="0" width="50" height="15" rx="2" fill="#6b7280"/>
+        <rect x="-5" y="5" width="60" height="20" fill="#8b6914" opacity="0.3"/>
+        <text x="25" y="35" textAnchor="middle" fill="#9ca3af" fontSize="6">Concrete</text>
+        <text x="25" y="43" textAnchor="middle" fill="#9ca3af" fontSize="6">Encased</text>
+      </g>
+
+      {/* Bonding connections */}
+      <line x1="88" y1="110" x2="160" y2="140" stroke="#22c55e" strokeWidth="2"/>
+      <line x1="150" y1="140" x2="200" y2="140" stroke="#22c55e" strokeWidth="2"/>
+      <line x1="200" y1="140" x2="255" y2="140" stroke="#22c55e" strokeWidth="2"/>
+
+      {/* Earth symbol */}
+      <g transform="translate(310, 140)">
+        <line x1="0" y1="0" x2="0" y2="15" stroke="#22c55e" strokeWidth="2"/>
+        <line x1="-15" y1="15" x2="15" y2="15" stroke="#22c55e" strokeWidth="2"/>
+        <line x1="-10" y1="20" x2="10" y2="20" stroke="#22c55e" strokeWidth="2"/>
+        <line x1="-5" y1="25" x2="5" y2="25" stroke="#22c55e" strokeWidth="2"/>
+      </g>
+      <line x1="255" y1="140" x2="310" y2="140" stroke="#22c55e" strokeWidth="2"/>
+
+      {/* Title */}
+      <text x="200" y="12" textAnchor="middle" fill="#a78bfa" fontSize="10" fontWeight="bold">Grounding Electrode System</text>
+    </svg>
+  );
+}
+
 export default function NECArticle250Page() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -82,6 +148,10 @@ export default function NECArticle250Page() {
               Grounding is one of the most critical safety aspects of electrical work. This guide breaks down NEC Article 250 into practical knowledge for everyday electrical installations.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-green-900/20 to-purple-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Table of Contents */}
           <div className="bg-white/5 rounded-2xl p-6 mb-12">

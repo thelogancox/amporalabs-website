@@ -34,6 +34,49 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 160" className="w-full h-40 md:h-48" aria-label="Electrical inspection checklist illustration">
+      {/* Clipboard */}
+      <g transform="translate(130, 10)">
+        <rect x="0" y="10" width="140" height="140" rx="6" fill="#1f2937" stroke="#22c55e" strokeWidth="2"/>
+        <rect x="45" y="0" width="50" height="20" rx="4" fill="#374151" stroke="#22c55e" strokeWidth="2"/>
+
+        {/* Checklist items */}
+        {[
+          { label: "GFCI Protection", checked: true },
+          { label: "Box Fill", checked: true },
+          { label: "Wire Sizing", checked: true },
+          { label: "Grounding", checked: false },
+          { label: "Panel Labels", checked: false },
+        ].map((item, i) => (
+          <g key={i} transform={`translate(15, ${35 + i * 22})`}>
+            <rect x="0" y="0" width="14" height="14" rx="2" fill={item.checked ? "#22c55e" : "#374151"} stroke={item.checked ? "#22c55e" : "#6b7280"}/>
+            {item.checked && (
+              <path d="M 3 7 L 6 10 L 11 4" stroke="#111827" strokeWidth="2" fill="none"/>
+            )}
+            <text x="20" y="11" fill={item.checked ? "#22c55e" : "#9ca3af"} fontSize="9">{item.label}</text>
+          </g>
+        ))}
+      </g>
+
+      {/* Inspector badge */}
+      <g transform="translate(30, 50)">
+        <circle cx="35" cy="35" r="35" fill="#1f2937" stroke="#f59e0b" strokeWidth="2"/>
+        <text x="35" y="30" textAnchor="middle" fill="#f59e0b" fontSize="8" fontWeight="bold">AHJ</text>
+        <text x="35" y="45" textAnchor="middle" fill="#f59e0b" fontSize="7">INSPECTOR</text>
+      </g>
+
+      {/* Pass/Fail indicator */}
+      <g transform="translate(300, 50)">
+        <rect x="0" y="0" width="80" height="70" rx="6" fill="#22c55e" fillOpacity="0.2" stroke="#22c55e" strokeWidth="2"/>
+        <text x="40" y="30" textAnchor="middle" fill="#22c55e" fontSize="12" fontWeight="bold">PASS</text>
+        <path d="M 25 50 L 35 60 L 55 40" stroke="#22c55e" strokeWidth="3" fill="none"/>
+      </g>
+    </svg>
+  );
+}
+
 export default function ElectricalInspectionChecklistPage() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -82,6 +125,10 @@ export default function ElectricalInspectionChecklistPage() {
               Don't let common mistakes delay your project. This comprehensive checklist covers everything inspectors look for during rough-in and final electrical inspections.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-green-900/20 to-amber-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Table of Contents */}
           <div className="bg-white/5 rounded-2xl p-6 mb-12">

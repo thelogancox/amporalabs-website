@@ -34,6 +34,61 @@ export const metadata: Metadata = {
   },
 };
 
+function HeroIllustration() {
+  return (
+    <svg viewBox="0 0 400 180" className="w-full h-44 md:h-52" aria-label="Electrical panel troubleshooting illustration">
+      {/* Panel */}
+      <g transform="translate(100, 15)">
+        <rect x="0" y="0" width="200" height="150" rx="6" fill="#1f2937" stroke="#6b7280" strokeWidth="2"/>
+        <rect x="10" y="10" width="180" height="130" fill="#111827"/>
+
+        {/* Main breaker */}
+        <rect x="75" y="20" width="50" height="25" rx="3" fill="#ef4444" stroke="#dc2626" strokeWidth="2"/>
+        <text x="100" y="37" textAnchor="middle" fill="#fff" fontSize="8" fontWeight="bold">MAIN</text>
+
+        {/* Breakers */}
+        {[0, 1, 2, 3].map((row) => (
+          <g key={row}>
+            <rect x="20" y={55 + row * 22} width="35" height="16" rx="2" fill={row === 1 ? "#ef4444" : "#374151"} stroke={row === 1 ? "#ef4444" : "#6b7280"}/>
+            <rect x="145" y={55 + row * 22} width="35" height="16" rx="2" fill="#374151" stroke="#6b7280"/>
+          </g>
+        ))}
+
+        {/* Problem indicator */}
+        <circle cx="37" cy={63 + 22} r="12" fill="#ef4444" fillOpacity="0.3" stroke="#ef4444" strokeWidth="2"/>
+        <text x="37" y={67 + 22} textAnchor="middle" fill="#ef4444" fontSize="12" fontWeight="bold">!</text>
+      </g>
+
+      {/* Diagnostic tools */}
+      <g transform="translate(20, 50)">
+        {/* Multimeter */}
+        <rect x="0" y="0" width="50" height="70" rx="4" fill="#1f2937" stroke="#22c55e" strokeWidth="2"/>
+        <rect x="10" y="10" width="30" height="20" fill="#111827"/>
+        <text x="25" y="24" textAnchor="middle" fill="#22c55e" fontSize="8">120V</text>
+        <circle cx="25" cy="50" r="10" fill="#374151"/>
+        <text x="25" y="80" textAnchor="middle" fill="#9ca3af" fontSize="6">Meter</text>
+      </g>
+
+      {/* Problem indicators */}
+      <g transform="translate(320, 30)">
+        <text x="0" y="0" fill="#ef4444" fontSize="8" fontWeight="bold">Common Issues:</text>
+        <text x="0" y="20" fill="#9ca3af" fontSize="7">• Tripping breaker</text>
+        <text x="0" y="35" fill="#9ca3af" fontSize="7">• Buzzing sound</text>
+        <text x="0" y="50" fill="#9ca3af" fontSize="7">• Hot connections</text>
+        <text x="0" y="65" fill="#9ca3af" fontSize="7">• Flickering lights</text>
+        <text x="0" y="80" fill="#9ca3af" fontSize="7">• Burning smell</text>
+      </g>
+
+      {/* Thermal indicator */}
+      <g transform="translate(330, 120)">
+        <rect x="0" y="0" width="50" height="40" rx="4" fill="#f59e0b" fillOpacity="0.2" stroke="#f59e0b"/>
+        <text x="25" y="15" textAnchor="middle" fill="#f59e0b" fontSize="7">THERMAL</text>
+        <text x="25" y="28" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="bold">145°F</text>
+      </g>
+    </svg>
+  );
+}
+
 export default function PanelTroubleshootingPage() {
   return (
     <main className="min-h-screen bg-black text-white">
@@ -82,6 +137,10 @@ export default function PanelTroubleshootingPage() {
               A systematic approach to diagnosing panel issues. From tripping breakers to mysterious buzzing, here's how to find and fix the problem.
             </p>
           </header>
+
+          <div className="mb-12 bg-gradient-to-br from-red-900/20 to-amber-900/20 rounded-2xl p-6 border border-white/10">
+            <HeroIllustration />
+          </div>
 
           {/* Safety Warning */}
           <div className="bg-red-900/30 border border-red-500/30 rounded-2xl p-6 mb-12">
