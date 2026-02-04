@@ -5,18 +5,32 @@ import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
-import AIDemo from "@/components/AIDemo";
-import Calculators from "@/components/Calculators";
-import PhotoAnalysis from "@/components/PhotoAnalysis";
-import QuickReference from "@/components/QuickReference";
-import Testimonials from "@/components/Testimonials";
-import Footer from "@/components/Footer";
 import BubbleBackground from "@/components/BubbleBackground";
 import SmoothScroll from "@/components/SmoothScroll";
 
 // Dynamically import Preloader to avoid SSR issues
 const Preloader = dynamic(() => import("@/components/Preloader"), {
   ssr: false,
+});
+
+// Lazy load below-the-fold components for better initial load performance
+const AIDemo = dynamic(() => import("@/components/AIDemo"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const Calculators = dynamic(() => import("@/components/Calculators"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const PhotoAnalysis = dynamic(() => import("@/components/PhotoAnalysis"), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+const QuickReference = dynamic(() => import("@/components/QuickReference"), {
+  loading: () => <div className="min-h-[300px]" />,
+});
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+  loading: () => <div className="min-h-[300px]" />,
+});
+const Footer = dynamic(() => import("@/components/Footer"), {
+  loading: () => <div className="min-h-[200px]" />,
 });
 
 export default function Home() {

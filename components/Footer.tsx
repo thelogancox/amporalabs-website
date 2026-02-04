@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Zap, ArrowRight, HelpCircle, ChevronDown, Mail, Building2, Send } from "lucide-react";
 
 const faqs = [
@@ -274,9 +275,11 @@ export default function Footer() {
             <div className="flex flex-col items-center gap-2">
               <div className="flex items-center gap-3">
                 <span className="text-sm text-white/50">Engineered by</span>
-                <img
-                  src="/korva-k-logo.png"
+                <Image
+                  src="/korva-k-logo.webp"
                   alt="KorvaTech"
+                  width={100}
+                  height={32}
                   className="h-8 w-auto opacity-90"
                 />
               </div>

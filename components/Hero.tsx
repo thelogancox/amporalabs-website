@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 import { Zap, ArrowRight, ChevronDown } from "lucide-react";
 import { gsap } from "gsap";
 import PhoneMockup from "./PhoneMockup";
@@ -164,10 +165,13 @@ export default function Hero() {
                     }}
                   >
                     {/* The logo image */}
-                    <img
-                      src="/ampora-logo.png"
+                    <Image
+                      src="/ampora-logo.webp"
                       alt="Ampora AI"
+                      width={120}
+                      height={120}
                       className="w-full h-full object-cover"
+                      priority
                     />
 
                     {/* Glint/shine overlay - diagonal light reflection */}
