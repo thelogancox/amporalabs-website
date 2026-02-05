@@ -239,6 +239,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        {/* Google Analytics - placed immediately after <head> for tag detection */}
+        <GoogleAnalytics />
+
         {/* Preconnect hints for faster resource loading */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -254,7 +257,6 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${outfit.variable} font-body antialiased bg-black text-white`}
       >
-        <GoogleAnalytics />
         <div className="noise-overlay" aria-hidden="true" />
         {children}
       </body>
