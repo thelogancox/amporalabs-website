@@ -12,6 +12,9 @@ import { TopPagesTable } from "@/components/dashboard/TopPagesTable";
 import { DeviceChart } from "@/components/dashboard/DeviceChart";
 import { GeoTable } from "@/components/dashboard/GeoTable";
 import { AppStoreClicksCard } from "@/components/dashboard/AppStoreClicksCard";
+import { AcquisitionTable } from "@/components/dashboard/AcquisitionTable";
+import { CampaignTable } from "@/components/dashboard/CampaignTable";
+import { UTMLinkBuilder } from "@/components/dashboard/UTMLinkBuilder";
 
 interface AnalyticsData {
   overview: {
@@ -50,6 +53,24 @@ interface AnalyticsData {
     percentage: number;
   }>;
   realtimeUsers: number;
+  sourceMedium: Array<{
+    source: string;
+    medium: string;
+    sessions: number;
+    users: number;
+    newUsers: number;
+    bounceRate: number;
+    percentage: number;
+  }>;
+  campaigns: Array<{
+    source: string;
+    medium: string;
+    campaign: string;
+    sessions: number;
+    users: number;
+    bounceRate: number;
+    engagementRate: number;
+  }>;
 }
 
 interface BlogData {
@@ -305,6 +326,17 @@ export default function DashboardPage() {
       <div className="grid lg:grid-cols-2 gap-6 mb-6">
         <DeviceChart data={analytics?.devices || []} loading={loading} />
         <GeoTable data={analytics?.geo || []} loading={loading} />
+      </div>
+
+      {/* Traffic Acquisition */}
+      <div className="mb-6">
+        <AcquisitionTable data={analytics?.sourceMedium || []} loading={loading} />
+      </div>
+
+      {/* Campaign Performance + UTM Builder */}
+      <div className="grid lg:grid-cols-2 gap-6 mb-6">
+        <CampaignTable data={analytics?.campaigns || []} loading={loading} />
+        <UTMLinkBuilder />
       </div>
 
       {/* App Store Clicks */}

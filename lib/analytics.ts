@@ -82,6 +82,26 @@ export interface AppStoreClickData {
   }>;
 }
 
+export interface CampaignData {
+  source: string;
+  medium: string;
+  campaign: string;
+  sessions: number;
+  users: number;
+  bounceRate: number;
+  engagementRate: number;
+}
+
+export interface SourceMediumData {
+  source: string;
+  medium: string;
+  sessions: number;
+  users: number;
+  newUsers: number;
+  bounceRate: number;
+  percentage: number;
+}
+
 export interface TrafficSource {
   source: string;
   sessions: number;
@@ -480,5 +500,111 @@ export async function getAppStoreClicks(startDate: string = '7daysAgo'): Promise
   } catch (error) {
     console.error('GA4 App Store Clicks Error:', error);
     return { totalClicks: 0, dailyClicks: [] };
+  }
+}
+
+export async function getSourceMediumBreakdown(startDate: string = '7daysAgo'): Promise<SourceMediumData[]> {
+  const cacheKey = `source-medium-${startDate}`;
+  const cached = getCached<SourceMediumData[]>(cacheKey);
+  if (cached) return cached;
+
+  const client = getAnalyticsClient();
+  const propertyId = process.env.GA_PROPERTY_ID;
+  if (!client || !propertyId) return [];
+
+  try {
+    const [response] = await client.runReport({
+      property: `properties/${propertyId}`,
+      dateRanges: [{ startDate, endDate: 'today' }],
+      dimensions: [
+        { name: 'sessionSource' },
+        { name: 'sessionMedium' },
+      ],
+      metrics: [
+        { name: 'sessions' },
+        { name: 'activeUsers' },
+        { name: 'newUsers' },
+        { name: 'bounceRate' },
+      ],
+      orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+      limit: 15,
+    });
+
+    const totalSessions = (response.rows || []).reduce(
+      (sum, row) => sum + parseInt(row.metricValues?.[0]?.value || '0', 10), 0
+    );
+
+    const data: SourceMediumData[] = (response.rows || []).map((row) => {
+      const sessions = parseInt(row.metricValues?.[0]?.value || '0', 10);
+      return {
+        source: row.dimensionValues?.[0]?.value || '(direct)',
+        medium: row.dimensionValues?.[1]?.value || '(none)',
+        sessions,
+        users: parseInt(row.metricValues?.[1]?.value || '0', 10),
+        newUsers: parseInt(row.metricValues?.[2]?.value || '0', 10),
+        bounceRate: parseFloat(row.metricValues?.[3]?.value || '0'),
+        percentage: totalSessions > 0 ? (sessions / totalSessions) * 100 : 0,
+      };
+    });
+
+    setCache(cacheKey, data);
+    return data;
+  } catch (error) {
+    console.error('GA4 Source/Medium Error:', error);
+    return [];
+  }
+}
+
+export async function getCampaignPerformance(startDate: string = '7daysAgo'): Promise<CampaignData[]> {
+  const cacheKey = `campaigns-${startDate}`;
+  const cached = getCached<CampaignData[]>(cacheKey);
+  if (cached) return cached;
+
+  const client = getAnalyticsClient();
+  const propertyId = process.env.GA_PROPERTY_ID;
+  if (!client || !propertyId) return [];
+
+  try {
+    const [response] = await client.runReport({
+      property: `properties/${propertyId}`,
+      dateRanges: [{ startDate, endDate: 'today' }],
+      dimensions: [
+        { name: 'sessionSource' },
+        { name: 'sessionMedium' },
+        { name: 'sessionCampaignName' },
+      ],
+      metrics: [
+        { name: 'sessions' },
+        { name: 'activeUsers' },
+        { name: 'bounceRate' },
+        { name: 'engagementRate' },
+      ],
+      dimensionFilter: {
+        notExpression: {
+          filter: {
+            fieldName: 'sessionCampaignName',
+            stringFilter: { matchType: 'EXACT', value: '(not set)' },
+          },
+        },
+      },
+      orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+      limit: 20,
+    });
+
+    const data: CampaignData[] = (response.rows || []).map((row) => ({
+      source: row.dimensionValues?.[0]?.value || '(direct)',
+      medium: row.dimensionValues?.[1]?.value || '(none)',
+      campaign: row.dimensionValues?.[2]?.value || '(not set)',
+      sessions: parseInt(row.metricValues?.[0]?.value || '0', 10),
+      users: parseInt(row.metricValues?.[1]?.value || '0', 10),
+      bounceRate: parseFloat(row.metricValues?.[2]?.value || '0'),
+      engagementRate: parseFloat(row.metricValues?.[3]?.value || '0'),
+    }));
+
+    setCache(cacheKey, data);
+    return data;
+  } catch (error) {
+    console.error('GA4 Campaign Performance Error:', error);
+    return [];
   }
 }
