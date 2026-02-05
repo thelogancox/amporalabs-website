@@ -7,7 +7,6 @@ import {
   WebsiteJsonLd,
   FAQJsonLd,
 } from "@/components/JsonLd";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -239,14 +238,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        {/* Google Analytics - placed immediately after <head> for tag detection */}
-        <GoogleAnalytics />
-
-        {/* Preconnect hints for faster resource loading */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {/* Google tag (gtag.js) - rendered directly in <head> for Google tag detection */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-35S2D0DSL8" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-35S2D0DSL8');`,
+          }}
+        />
 
         {/* JSON-LD Structured Data for SEO */}
         <OrganizationJsonLd />
