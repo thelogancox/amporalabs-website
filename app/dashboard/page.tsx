@@ -2,12 +2,16 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useSession } from "next-auth/react";
-import { Eye, Users, Activity, Download, AlertCircle } from "lucide-react";
+import { Eye, Users, Activity, Download, AlertCircle, BarChart3, UserPlus, Clock, MousePointerClick } from "lucide-react";
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
 import { MetricCard } from "@/components/dashboard/MetricCard";
 import { TrafficChart } from "@/components/dashboard/TrafficChart";
 import { SourcesChart } from "@/components/dashboard/SourcesChart";
 import { BlogTable } from "@/components/dashboard/BlogTable";
+import { TopPagesTable } from "@/components/dashboard/TopPagesTable";
+import { DeviceChart } from "@/components/dashboard/DeviceChart";
+import { GeoTable } from "@/components/dashboard/GeoTable";
+import { AppStoreClicksCard } from "@/components/dashboard/AppStoreClicksCard";
 
 interface AnalyticsData {
   overview: {
@@ -17,6 +21,12 @@ interface AnalyticsData {
     bounceRate: number;
     avgSessionDuration: number;
     newUsers: number;
+    previousPageViews: number;
+    previousVisitors: number;
+    previousSessions: number;
+    previousBounceRate: number;
+    previousAvgSessionDuration: number;
+    previousNewUsers: number;
     dailyData: Array<{
       date: string;
       pageViews: number;
@@ -28,6 +38,18 @@ interface AnalyticsData {
     sessions: number;
     percentage: number;
   }>;
+  devices: Array<{
+    device: string;
+    sessions: number;
+    percentage: number;
+  }>;
+  geo: Array<{
+    country: string;
+    sessions: number;
+    users: number;
+    percentage: number;
+  }>;
+  realtimeUsers: number;
 }
 
 interface BlogData {
@@ -40,10 +62,40 @@ interface BlogData {
   }>;
 }
 
+interface PagesData {
+  pages: Array<{
+    path: string;
+    title: string;
+    pageViews: number;
+    avgDuration: number;
+    engagementRate: number;
+  }>;
+}
+
+interface ClicksData {
+  totalClicks: number;
+  dailyClicks: Array<{ date: string; clicks: number }>;
+}
+
 interface DownloadData {
   totalDownloads: number;
   lastUpdated: string;
   error?: string;
+}
+
+function computeChange(current: number, previous: number): { change: number; trend: "up" | "down" | "neutral" } {
+  if (previous === 0) return { change: 0, trend: "neutral" };
+  const change = ((current - previous) / previous) * 100;
+  return {
+    change: Math.abs(change),
+    trend: change > 0 ? "up" : change < 0 ? "down" : "neutral",
+  };
+}
+
+function formatDuration(seconds: number): string {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return mins > 0 ? `${mins}m ${secs}s` : `${secs}s`;
 }
 
 export default function DashboardPage() {
@@ -51,6 +103,8 @@ export default function DashboardPage() {
   const [period, setPeriod] = useState("7daysAgo");
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
   const [blog, setBlog] = useState<BlogData | null>(null);
+  const [pages, setPages] = useState<PagesData | null>(null);
+  const [clicks, setClicks] = useState<ClicksData | null>(null);
   const [downloads, setDownloads] = useState<DownloadData | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -65,10 +119,12 @@ export default function DashboardPage() {
     setError(null);
 
     try {
-      const [analyticsRes, blogRes, downloadsRes] = await Promise.all([
+      const [analyticsRes, blogRes, downloadsRes, pagesRes, clicksRes] = await Promise.all([
         fetch(`/api/analytics?period=${period}`),
         fetch(`/api/analytics/blog?period=30daysAgo`),
         fetch(`/api/analytics/downloads`),
+        fetch(`/api/analytics/pages?period=${period}`),
+        fetch(`/api/analytics/clicks?period=${period}`),
       ]);
 
       if (analyticsRes.ok) {
@@ -87,6 +143,16 @@ export default function DashboardPage() {
       if (downloadsRes.ok) {
         const data = await downloadsRes.json();
         setDownloads(data);
+      }
+
+      if (pagesRes.ok) {
+        const data = await pagesRes.json();
+        setPages(data);
+      }
+
+      if (clicksRes.ok) {
+        const data = await clicksRes.json();
+        setClicks(data);
       }
     } catch (err) {
       setError("Failed to connect to analytics service");
@@ -123,6 +189,15 @@ export default function DashboardPage() {
     return (rate * 100).toFixed(1) + "%";
   }
 
+  const o = analytics?.overview;
+
+  const pvChange = o ? computeChange(o.pageViews, o.previousPageViews) : undefined;
+  const visitorChange = o ? computeChange(o.visitors, o.previousVisitors) : undefined;
+  const sessionChange = o ? computeChange(o.sessions, o.previousSessions) : undefined;
+  const newUserChange = o ? computeChange(o.newUsers, o.previousNewUsers) : undefined;
+  const bounceChange = o ? computeChange(o.bounceRate, o.previousBounceRate) : undefined;
+  const durationChange = o ? computeChange(o.avgSessionDuration, o.previousAvgSessionDuration) : undefined;
+
   return (
     <main className="max-w-7xl mx-auto px-6 py-8">
       <DashboardHeader
@@ -131,6 +206,8 @@ export default function DashboardPage() {
         onRefresh={handleRefresh}
         refreshing={refreshing}
         userEmail={session?.user?.email}
+        realtimeUsers={analytics?.realtimeUsers}
+        loading={loading}
       />
 
       {/* Error Banner */}
@@ -146,24 +223,64 @@ export default function DashboardPage() {
         </div>
       )}
 
-      {/* Metric Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      {/* Metric Cards - Row 1 */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         <MetricCard
           title="Page Views"
-          value={analytics ? formatNumber(analytics.overview.pageViews) : "—"}
+          value={o ? formatNumber(o.pageViews) : "—"}
           icon={Eye}
           loading={loading}
+          change={pvChange?.change}
+          trend={pvChange?.trend}
         />
         <MetricCard
           title="Unique Visitors"
-          value={analytics ? formatNumber(analytics.overview.visitors) : "—"}
+          value={o ? formatNumber(o.visitors) : "—"}
           icon={Users}
           loading={loading}
+          change={visitorChange?.change}
+          trend={visitorChange?.trend}
         />
         <MetricCard
+          title="Sessions"
+          value={o ? formatNumber(o.sessions) : "—"}
+          icon={BarChart3}
+          loading={loading}
+          change={sessionChange?.change}
+          trend={sessionChange?.trend}
+        />
+        <MetricCard
+          title="New Users"
+          value={o ? formatNumber(o.newUsers) : "—"}
+          icon={UserPlus}
+          loading={loading}
+          change={newUserChange?.change}
+          trend={newUserChange?.trend}
+        />
+      </div>
+
+      {/* Metric Cards - Row 2 */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <MetricCard
           title="Bounce Rate"
-          value={analytics ? formatBounceRate(analytics.overview.bounceRate) : "—"}
+          value={o ? formatBounceRate(o.bounceRate) : "—"}
           icon={Activity}
+          loading={loading}
+          change={bounceChange?.change}
+          trend={bounceChange?.trend === "up" ? "down" : bounceChange?.trend === "down" ? "up" : bounceChange?.trend}
+        />
+        <MetricCard
+          title="Avg. Duration"
+          value={o ? formatDuration(o.avgSessionDuration) : "—"}
+          icon={Clock}
+          loading={loading}
+          change={durationChange?.change}
+          trend={durationChange?.trend}
+        />
+        <MetricCard
+          title="App Store Clicks"
+          value={clicks ? formatNumber(clicks.totalClicks) : "—"}
+          icon={MousePointerClick}
           loading={loading}
         />
         <MetricCard
@@ -176,12 +293,28 @@ export default function DashboardPage() {
       </div>
 
       {/* Charts Row */}
-      <div className="grid lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid lg:grid-cols-2 gap-6 mb-6">
         <TrafficChart
           data={analytics?.overview.dailyData || []}
           loading={loading}
         />
         <SourcesChart data={analytics?.sources || []} loading={loading} />
+      </div>
+
+      {/* Breakdown Row */}
+      <div className="grid lg:grid-cols-2 gap-6 mb-6">
+        <DeviceChart data={analytics?.devices || []} loading={loading} />
+        <GeoTable data={analytics?.geo || []} loading={loading} />
+      </div>
+
+      {/* App Store Clicks */}
+      <div className="mb-6">
+        <AppStoreClicksCard data={clicks} loading={loading} />
+      </div>
+
+      {/* Top Pages */}
+      <div className="mb-6">
+        <TopPagesTable pages={pages?.pages || []} loading={loading} />
       </div>
 
       {/* Blog Performance */}

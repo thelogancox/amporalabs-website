@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, Zap, Sparkles } from "lucide-react";
+import { analyticsEvents } from "@/components/GoogleAnalytics";
 
 export default function Pricing() {
   return (
@@ -63,6 +64,7 @@ export default function Pricing() {
             href="https://apps.apple.com/us/app/ampora/id6753693522"
            target="_blank"
            rel="noopener noreferrer"
+           onClick={() => analyticsEvents.downloadClick('pricing')}
                         className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-ampora-500 text-white font-semibold text-lg hover:bg-ampora-600 transition-colors"
           >
             <Zap className="w-5 h-5" />

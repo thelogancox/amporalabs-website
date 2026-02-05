@@ -3,6 +3,7 @@
 import { signOut } from "next-auth/react";
 import { LogOut, RefreshCw } from "lucide-react";
 import { DateRangePicker } from "./DateRangePicker";
+import { RealtimeBadge } from "./RealtimeBadge";
 
 interface DashboardHeaderProps {
   period: string;
@@ -10,6 +11,8 @@ interface DashboardHeaderProps {
   onRefresh: () => void;
   refreshing?: boolean;
   userEmail?: string | null;
+  realtimeUsers?: number;
+  loading?: boolean;
 }
 
 export function DashboardHeader({
@@ -18,13 +21,18 @@ export function DashboardHeader({
   onRefresh,
   refreshing,
   userEmail,
+  realtimeUsers = 0,
+  loading,
 }: DashboardHeaderProps) {
   return (
     <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
       <div>
-        <h1 className="text-2xl font-display font-bold text-white">
-          Ampora Dashboard
-        </h1>
+        <div className="flex items-center gap-3">
+          <h1 className="text-2xl font-display font-bold text-white">
+            Ampora Dashboard
+          </h1>
+          <RealtimeBadge count={realtimeUsers} loading={loading} />
+        </div>
         <p className="text-white/50 text-sm mt-1">
           {userEmail ? `Signed in as ${userEmail}` : "Analytics and performance metrics"}
         </p>

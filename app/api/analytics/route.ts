@@ -1,14 +1,17 @@
 import { NextResponse } from 'next/server';
-import { getOverviewData, getTrafficSources } from '@/lib/analytics';
+import { getOverviewData, getTrafficSources, getDeviceBreakdown, getGeographicBreakdown, getRealtimeUsers } from '@/lib/analytics';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const period = searchParams.get('period') || '7daysAgo';
 
   try {
-    const [overview, sources] = await Promise.all([
+    const [overview, sources, devices, geo, realtimeUsers] = await Promise.all([
       getOverviewData(period),
       getTrafficSources(period),
+      getDeviceBreakdown(period),
+      getGeographicBreakdown(period),
+      getRealtimeUsers(),
     ]);
 
     if (!overview) {
@@ -28,6 +31,9 @@ export async function GET(request: Request) {
     return NextResponse.json({
       overview,
       sources,
+      devices,
+      geo,
+      realtimeUsers,
     });
   } catch (error: unknown) {
     const err = error as Error & { code?: string; details?: string };

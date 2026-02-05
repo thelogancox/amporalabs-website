@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Zap, ArrowRight, HelpCircle, ChevronDown, Mail, Building2, Send } from "lucide-react";
+import { analyticsEvents } from "@/components/GoogleAnalytics";
 
 const faqs = [
   { q: "Is Ampora accurate for professional work?", a: "Yes! Our AI is trained on the NEC and provides code-backed answers with specific article references." },
@@ -102,6 +103,7 @@ export default function Footer() {
                   href="https://apps.apple.com/us/app/ampora/id6753693522"
                  target="_blank"
                  rel="noopener noreferrer"
+                 onClick={() => analyticsEvents.downloadClick('footer-cta')}
                                     className="inline-flex items-center gap-4 px-6 py-4 rounded-2xl bg-white text-black font-semibold text-lg group hover:bg-white/90 transition-all hover:scale-105"
                 >
                   <img
@@ -258,6 +260,7 @@ export default function Footer() {
               href="https://apps.apple.com/us/app/ampora/id6753693522"
              target="_blank"
              rel="noopener noreferrer"
+             onClick={() => analyticsEvents.downloadClick('footer-bottom')}
                             className="inline-flex items-center gap-4 px-5 py-2.5 rounded-xl bg-white text-black font-semibold hover:bg-white/90 transition-all hover:scale-105"
             >
               <img
