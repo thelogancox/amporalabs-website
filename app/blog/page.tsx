@@ -291,6 +291,271 @@ function getThumbnail(slug: string): ReactNode {
         <line x1="70" y1="42" x2="80" y2="42" stroke="#374151" strokeWidth="2"/>
       </svg>
     ),
+    "bathroom-electrical-code-requirements": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="15" y="15" width="90" height="50" rx="4" fill="#1f2937" stroke="#6b7280" strokeWidth="1"/>
+        <ellipse cx="45" cy="35" rx="18" ry="10" fill="#374151" stroke="#9ca3af" strokeWidth="1"/>
+        <text x="45" y="38" textAnchor="middle" fill="#9ca3af" fontSize="6">Sink</text>
+        <circle cx="80" cy="35" r="8" fill="none" stroke="#22c55e" strokeWidth="1.5"/>
+        <line x1="80" y1="35" x2="80" y2="22" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="80" y="52" textAnchor="middle" fill="#22c55e" fontSize="5">GFCI</text>
+        <rect x="25" y="55" width="30" height="15" rx="2" fill="#0ea5e9" fillOpacity="0.2" stroke="#0ea5e9" strokeWidth="1"/>
+        <text x="40" y="65" textAnchor="middle" fill="#0ea5e9" fontSize="5">Shower</text>
+      </svg>
+    ),
+    "underground-wiring-installation-guide": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="10" y="10" width="100" height="15" fill="#0c4a6e" fillOpacity="0.3"/>
+        <line x1="10" y1="25" x2="110" y2="25" stroke="#78350f" strokeWidth="2"/>
+        <rect x="10" y="25" width="100" height="45" fill="#422006" fillOpacity="0.3"/>
+        <line x1="30" y1="25" x2="30" y2="60" stroke="#f59e0b" strokeWidth="4"/>
+        <line x1="60" y1="25" x2="60" y2="45" stroke="#6b7280" strokeWidth="6"/>
+        <rect x="57" y="25" width="6" height="20" fill="#1f2937"/>
+        <line x1="90" y1="25" x2="90" y2="55" stroke="#4b5563" strokeWidth="6"/>
+        <rect x="87" y="25" width="6" height="30" fill="#1f2937"/>
+        <text x="30" y="72" textAnchor="middle" fill="#fcd34d" fontSize="5">24"</text>
+        <text x="60" y="72" textAnchor="middle" fill="#9ca3af" fontSize="5">6"</text>
+        <text x="90" y="72" textAnchor="middle" fill="#9ca3af" fontSize="5">18"</text>
+      </svg>
+    ),
+    "electrical-symbols-blueprint-reading": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="10" y="10" width="100" height="60" rx="4" fill="#1e3a5f" stroke="#3b82f6" strokeWidth="1"/>
+        <g stroke="#60a5fa" strokeWidth="0.5" opacity="0.3">
+          <line x1="10" y1="30" x2="110" y2="30"/>
+          <line x1="10" y1="50" x2="110" y2="50"/>
+          <line x1="40" y1="10" x2="40" y2="70"/>
+          <line x1="80" y1="10" x2="80" y2="70"/>
+        </g>
+        <circle cx="30" cy="40" r="6" fill="none" stroke="#22c55e" strokeWidth="1.5"/>
+        <line x1="30" y1="40" x2="30" y2="30" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="55" y="42" fill="#f59e0b" fontSize="10">S</text>
+        <circle cx="85" cy="40" r="7" fill="none" stroke="#fbbf24" strokeWidth="1.5"/>
+        <line x1="80" y1="35" x2="90" y2="45" stroke="#fbbf24" strokeWidth="1"/>
+        <line x1="80" y1="45" x2="90" y2="35" stroke="#fbbf24" strokeWidth="1"/>
+      </svg>
+    ),
+    "power-factor-correction-basics": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <line x1="20" y1="60" x2="80" y2="60" stroke="#22c55e" strokeWidth="3"/>
+        <line x1="80" y1="60" x2="80" y2="25" stroke="#f59e0b" strokeWidth="3"/>
+        <line x1="20" y1="60" x2="80" y2="25" stroke="#a855f7" strokeWidth="3"/>
+        <text x="50" y="72" textAnchor="middle" fill="#22c55e" fontSize="7">kW</text>
+        <text x="88" y="45" textAnchor="middle" fill="#f59e0b" fontSize="7">kVAR</text>
+        <text x="40" y="40" textAnchor="middle" fill="#a855f7" fontSize="7">kVA</text>
+        <path d="M 30 60 A 10 10 0 0 0 35 52" fill="none" stroke="#ef4444" strokeWidth="1.5"/>
+        <text x="38" y="55" fill="#ef4444" fontSize="6">θ</text>
+        <text x="100" y="35" fill="#22c55e" fontSize="8" fontWeight="bold">PF</text>
+        <text x="100" y="48" fill="#86efac" fontSize="7">0.85</text>
+      </svg>
+    ),
+    "outdoor-receptacle-requirements-nec": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="10" y="20" width="100" height="50" rx="2" fill="#374151" fillOpacity="0.3" stroke="#6b7280" strokeWidth="1"/>
+        <line x1="10" y1="70" x2="110" y2="70" stroke="#78350f" strokeWidth="2"/>
+        <rect x="25" y="30" width="30" height="35" rx="3" fill="#6b7280" stroke="#22c55e" strokeWidth="2"/>
+        <path d="M 28 33 L 28 60 L 52 60 L 52 33 Q 52 28 40 28 Q 28 28 28 33" fill="#374151" stroke="#22c55e" strokeWidth="1"/>
+        <rect x="34" y="42" width="12" height="8" rx="1" fill="#f5f5f4" fillOpacity="0.3"/>
+        <rect x="34" y="53" width="12" height="4" fill="#1f2937"/>
+        <text x="40" y="75" textAnchor="middle" fill="#22c55e" fontSize="6">In-Use</text>
+        <rect x="70" y="35" width="25" height="25" rx="3" fill="#6b7280" stroke="#f59e0b" strokeWidth="1.5"/>
+        <rect x="73" y="38" width="19" height="19" rx="2" fill="#4b5563"/>
+        <text x="82" y="52" textAnchor="middle" fill="#9ca3af" fontSize="6">WP</text>
+        <text x="82" y="75" textAnchor="middle" fill="#fcd34d" fontSize="6">Standard</text>
+      </svg>
+    ),
+    "hazardous-locations-nec-500": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <circle cx="35" cy="40" r="20" fill="#ef4444" fillOpacity="0.2" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4"/>
+        <text x="35" y="35" textAnchor="middle" fill="#ef4444" fontSize="7">Class I</text>
+        <text x="35" y="48" textAnchor="middle" fill="#fca5a5" fontSize="6">Gases</text>
+        <circle cx="85" cy="40" r="20" fill="#f59e0b" fillOpacity="0.2" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4"/>
+        <text x="85" y="35" textAnchor="middle" fill="#f59e0b" fontSize="7">Class II</text>
+        <text x="85" y="48" textAnchor="middle" fill="#fcd34d" fontSize="6">Dust</text>
+        <path d="M45 70 L55 62 L65 70 L75 62" stroke="#a855f7" strokeWidth="1.5" fill="none"/>
+        <text x="60" y="78" textAnchor="middle" fill="#9ca3af" fontSize="6">Hazardous</text>
+      </svg>
+    ),
+    "electrical-grounding-vs-bonding": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="20" y="10" width="35" height="50" rx="3" fill="#1f2937" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="37" y="30" textAnchor="middle" fill="#22c55e" fontSize="7">GND</text>
+        <line x1="37" y1="60" x2="37" y2="75" stroke="#22c55e" strokeWidth="2"/>
+        <circle cx="37" cy="77" r="4" fill="#92400e" stroke="#f59e0b" strokeWidth="1"/>
+        <rect x="65" y="10" width="35" height="50" rx="3" fill="#1f2937" stroke="#3b82f6" strokeWidth="1.5"/>
+        <text x="82" y="30" textAnchor="middle" fill="#3b82f6" fontSize="7">BND</text>
+        <line x1="82" y1="60" x2="82" y2="65" stroke="#3b82f6" strokeWidth="2"/>
+        <line x1="70" y1="65" x2="94" y2="65" stroke="#3b82f6" strokeWidth="2"/>
+        <text x="60" y="78" textAnchor="middle" fill="#9ca3af" fontSize="6">vs</text>
+      </svg>
+    ),
+    "solar-pv-system-installation-nec-690": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <circle cx="20" cy="20" r="12" fill="#fbbf24" fillOpacity="0.3" stroke="#fbbf24" strokeWidth="1.5"/>
+        <line x1="20" y1="5" x2="20" y2="10" stroke="#fbbf24" strokeWidth="1.5"/>
+        <line x1="32" y1="8" x2="28" y2="12" stroke="#fbbf24" strokeWidth="1.5"/>
+        <rect x="40" y="15" width="35" height="25" rx="2" fill="#3b82f6" fillOpacity="0.3" stroke="#3b82f6" strokeWidth="1.5"/>
+        <line x1="45" y1="20" x2="70" y2="20" stroke="#3b82f6" strokeWidth="1"/>
+        <line x1="45" y1="27" x2="70" y2="27" stroke="#3b82f6" strokeWidth="1"/>
+        <line x1="45" y1="34" x2="70" y2="34" stroke="#3b82f6" strokeWidth="1"/>
+        <rect x="85" y="20" width="20" height="35" rx="2" fill="#22c55e" fillOpacity="0.2" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="95" y="40" textAnchor="middle" fill="#22c55e" fontSize="7">INV</text>
+        <line x1="75" y1="27" x2="85" y2="37" stroke="#374151" strokeWidth="2"/>
+        <text x="57" y="55" textAnchor="middle" fill="#9ca3af" fontSize="6">PV Array</text>
+      </svg>
+    ),
+    "derating-factors-conductor-ampacity": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="15" y="20" width="90" height="12" rx="2" fill="#22c55e" fillOpacity="0.3" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="60" y="29" textAnchor="middle" fill="#22c55e" fontSize="7">100A Base</text>
+        <rect x="15" y="38" width="70" height="12" rx="2" fill="#f59e0b" fillOpacity="0.3" stroke="#f59e0b" strokeWidth="1.5"/>
+        <text x="50" y="47" textAnchor="middle" fill="#f59e0b" fontSize="7">80A Temp</text>
+        <rect x="15" y="56" width="50" height="12" rx="2" fill="#ef4444" fillOpacity="0.3" stroke="#ef4444" strokeWidth="1.5"/>
+        <text x="40" y="65" textAnchor="middle" fill="#ef4444" fontSize="7">56A Fill</text>
+        <path d="M90 35 L95 44 L100 35" stroke="#9ca3af" strokeWidth="1.5" fill="none"/>
+        <path d="M75 53 L80 62 L85 53" stroke="#9ca3af" strokeWidth="1.5" fill="none"/>
+      </svg>
+    ),
+    "electrical-service-upgrade-200-amp": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="20" y="15" width="35" height="50" rx="3" fill="#1f2937" stroke="#6b7280" strokeWidth="1.5" strokeDasharray="3"/>
+        <text x="37" y="38" textAnchor="middle" fill="#6b7280" fontSize="8">100A</text>
+        <text x="37" y="52" textAnchor="middle" fill="#6b7280" fontSize="6">OLD</text>
+        <path d="M58 40 L68 40 M63 35 L68 40 L63 45" stroke="#22c55e" strokeWidth="2" fill="none"/>
+        <rect x="72" y="15" width="35" height="50" rx="3" fill="#1f2937" stroke="#22c55e" strokeWidth="2"/>
+        <text x="89" y="38" textAnchor="middle" fill="#22c55e" fontSize="8">200A</text>
+        <text x="89" y="52" textAnchor="middle" fill="#86efac" fontSize="6">NEW</text>
+      </svg>
+    ),
+    "swimming-pool-electrical-nec-680": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <ellipse cx="60" cy="45" rx="45" ry="20" fill="#0ea5e9" fillOpacity="0.2" stroke="#0ea5e9" strokeWidth="1.5"/>
+        <circle cx="40" cy="45" r="5" fill="#fbbf24" fillOpacity="0.5" stroke="#fbbf24" strokeWidth="1"/>
+        <rect x="80" y="20" width="25" height="20" rx="2" fill="#1f2937" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="92" y="33" textAnchor="middle" fill="#22c55e" fontSize="6">GFCI</text>
+        <line x1="25" y1="70" x2="95" y2="70" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4"/>
+        <text x="60" y="78" textAnchor="middle" fill="#fcd34d" fontSize="6">Bonding Grid</text>
+      </svg>
+    ),
+    "commercial-lighting-controls-nec": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="15" y="25" width="25" height="35" rx="3" fill="#1f2937" stroke="#a855f7" strokeWidth="1.5"/>
+        <circle cx="27" cy="35" r="5" fill="#a855f7" fillOpacity="0.3" stroke="#a855f7" strokeWidth="1"/>
+        <rect x="20" y="45" width="15" height="8" rx="1" fill="#a855f7" fillOpacity="0.3"/>
+        <line x1="40" y1="42" x2="55" y2="35" stroke="#374151" strokeWidth="1.5" strokeDasharray="3"/>
+        <line x1="40" y1="42" x2="55" y2="50" stroke="#374151" strokeWidth="1.5" strokeDasharray="3"/>
+        <circle cx="65" cy="35" r="8" fill="#fbbf24" fillOpacity="0.3" stroke="#fbbf24" strokeWidth="1.5"/>
+        <circle cx="65" cy="50" r="8" fill="#fbbf24" fillOpacity="0.3" stroke="#fbbf24" strokeWidth="1.5"/>
+        <circle cx="90" cy="42" r="10" fill="#22c55e" fillOpacity="0.2" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="90" y="45" textAnchor="middle" fill="#22c55e" fontSize="6">PIR</text>
+      </svg>
+    ),
+    "temporary-wiring-construction-sites": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="10" y="20" width="30" height="40" rx="3" fill="#1f2937" stroke="#f59e0b" strokeWidth="1.5"/>
+        <text x="25" y="38" textAnchor="middle" fill="#f59e0b" fontSize="6">TEMP</text>
+        <text x="25" y="50" textAnchor="middle" fill="#fcd34d" fontSize="6">PANEL</text>
+        <line x1="40" y1="40" x2="60" y2="40" stroke="#f59e0b" strokeWidth="3"/>
+        <rect x="60" y="30" width="25" height="20" rx="2" fill="#22c55e" fillOpacity="0.2" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="72" y="43" textAnchor="middle" fill="#22c55e" fontSize="6">GFCI</text>
+        <line x1="85" y1="40" x2="105" y2="40" stroke="#374151" strokeWidth="3"/>
+        <circle cx="105" cy="40" r="8" fill="#3b82f6" fillOpacity="0.2" stroke="#3b82f6" strokeWidth="1"/>
+        <text x="105" y="60" textAnchor="middle" fill="#9ca3af" fontSize="5">Tool</text>
+      </svg>
+    ),
+    "electrical-fault-current-calculations": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="15" y="25" width="25" height="30" rx="2" fill="#1f2937" stroke="#ef4444" strokeWidth="1.5"/>
+        <text x="27" y="43" textAnchor="middle" fill="#ef4444" fontSize="7">XFMR</text>
+        <line x1="40" y1="40" x2="60" y2="40" stroke="#ef4444" strokeWidth="2"/>
+        <path d="M55 32 L65 40 L55 48" fill="none" stroke="#ef4444" strokeWidth="2"/>
+        <rect x="70" y="25" width="35" height="30" rx="2" fill="#1f2937" stroke="#f59e0b" strokeWidth="1.5"/>
+        <text x="87" y="38" textAnchor="middle" fill="#f59e0b" fontSize="6">22kA</text>
+        <text x="87" y="50" textAnchor="middle" fill="#fcd34d" fontSize="6">AIC</text>
+        <text x="60" y="70" textAnchor="middle" fill="#9ca3af" fontSize="6">Fault Current</text>
+      </svg>
+    ),
+    "kitchen-electrical-requirements-nec": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="10" y="25" width="100" height="8" rx="1" fill="#78350f" fillOpacity="0.3" stroke="#a16207" strokeWidth="1"/>
+        <circle cx="25" cy="45" r="8" fill="none" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="25" y="48" textAnchor="middle" fill="#22c55e" fontSize="6">1</text>
+        <circle cx="50" cy="45" r="8" fill="none" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="50" y="48" textAnchor="middle" fill="#22c55e" fontSize="6">2</text>
+        <circle cx="75" cy="45" r="8" fill="none" stroke="#f59e0b" strokeWidth="1.5"/>
+        <text x="75" y="48" textAnchor="middle" fill="#f59e0b" fontSize="6">3</text>
+        <circle cx="100" cy="45" r="8" fill="none" stroke="#f59e0b" strokeWidth="1.5"/>
+        <text x="100" y="48" textAnchor="middle" fill="#f59e0b" fontSize="6">4</text>
+        <text x="60" y="70" textAnchor="middle" fill="#9ca3af" fontSize="6">Small Appliance Circuits</text>
+      </svg>
+    ),
+    "commercial-kitchen-electrical-requirements": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="10" y="10" width="40" height="25" rx="2" fill="#6b7280" fillOpacity="0.3" stroke="#6b7280" strokeWidth="1"/>
+        <text x="30" y="26" textAnchor="middle" fill="#9ca3af" fontSize="6">Hood</text>
+        <rect x="15" y="40" width="30" height="30" rx="2" fill="#ef4444" fillOpacity="0.2" stroke="#ef4444" strokeWidth="1.5"/>
+        <text x="30" y="58" textAnchor="middle" fill="#ef4444" fontSize="7">Range</text>
+        <rect x="55" y="40" width="25" height="30" rx="2" fill="#3b82f6" fillOpacity="0.2" stroke="#3b82f6" strokeWidth="1.5"/>
+        <text x="67" y="58" textAnchor="middle" fill="#3b82f6" fontSize="6">Fryer</text>
+        <rect x="85" y="40" width="25" height="30" rx="2" fill="#22c55e" fillOpacity="0.2" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="97" y="58" textAnchor="middle" fill="#22c55e" fontSize="6">Refer</text>
+      </svg>
+    ),
+    "data-center-electrical-design": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="10" y="15" width="25" height="50" rx="2" fill="#1f2937" stroke="#22c55e" strokeWidth="1.5"/>
+        <text x="22" y="35" textAnchor="middle" fill="#22c55e" fontSize="6">UPS</text>
+        <text x="22" y="50" textAnchor="middle" fill="#86efac" fontSize="5">2N</text>
+        <rect x="45" y="15" width="30" height="50" rx="2" fill="#1f2937" stroke="#a855f7" strokeWidth="1.5"/>
+        <rect x="50" y="22" width="20" height="5" fill="#a855f7" fillOpacity="0.3"/>
+        <rect x="50" y="32" width="20" height="5" fill="#a855f7" fillOpacity="0.3"/>
+        <rect x="50" y="42" width="20" height="5" fill="#a855f7" fillOpacity="0.3"/>
+        <rect x="50" y="52" width="20" height="5" fill="#a855f7" fillOpacity="0.3"/>
+        <text x="60" y="68" textAnchor="middle" fill="#9ca3af" fontSize="5">Racks</text>
+        <rect x="85" y="15" width="25" height="50" rx="2" fill="#1f2937" stroke="#f59e0b" strokeWidth="1.5"/>
+        <text x="97" y="42" textAnchor="middle" fill="#f59e0b" fontSize="6">GEN</text>
+      </svg>
+    ),
+    "low-voltage-wiring-basics": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="15" y="20" width="40" height="15" rx="2" fill="#3b82f6" fillOpacity="0.2" stroke="#3b82f6" strokeWidth="1.5"/>
+        <text x="35" y="31" textAnchor="middle" fill="#3b82f6" fontSize="7">Class 2</text>
+        <rect x="65" y="20" width="40" height="15" rx="2" fill="#a855f7" fillOpacity="0.2" stroke="#a855f7" strokeWidth="1.5"/>
+        <text x="85" y="31" textAnchor="middle" fill="#a855f7" fontSize="7">Class 3</text>
+        <line x1="20" y1="50" x2="100" y2="50" stroke="#22c55e" strokeWidth="3"/>
+        <line x1="20" y1="55" x2="100" y2="55" stroke="#3b82f6" strokeWidth="2"/>
+        <line x1="20" y1="60" x2="100" y2="60" stroke="#f59e0b" strokeWidth="2"/>
+        <line x1="20" y1="65" x2="100" y2="65" stroke="#9ca3af" strokeWidth="2"/>
+        <text x="60" y="78" textAnchor="middle" fill="#9ca3af" fontSize="6">Cat6 Cable</text>
+      </svg>
+    ),
+    "electrical-safety-nfpa-70e": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <path d="M60 10 L70 30 L65 30 L75 50 L55 35 L60 35 L45 15 Z" fill="#f59e0b" fillOpacity="0.4" stroke="#f59e0b" strokeWidth="1.5"/>
+        <rect x="20" y="55" width="80" height="15" rx="2" fill="#ef4444" fillOpacity="0.2" stroke="#ef4444" strokeWidth="1.5"/>
+        <text x="60" y="66" textAnchor="middle" fill="#ef4444" fontSize="8">PPE Required</text>
+        <text x="90" y="25" fill="#22c55e" fontSize="7">Cat 2</text>
+        <text x="90" y="38" fill="#86efac" fontSize="6">8 cal</text>
+      </svg>
+    ),
+    "receptacle-types-configurations-guide": (
+      <svg viewBox="0 0 120 80" className="w-full h-full">
+        <rect x="10" y="20" width="30" height="40" rx="3" fill="#1f2937" stroke="#6b7280" strokeWidth="1.5"/>
+        <ellipse cx="17" cy="35" rx="3" ry="5" fill="#4b5563"/>
+        <ellipse cx="33" cy="35" rx="3" ry="5" fill="#4b5563"/>
+        <circle cx="25" cy="50" r="3" fill="#4b5563"/>
+        <text x="25" y="72" textAnchor="middle" fill="#9ca3af" fontSize="6">5-15R</text>
+        <rect x="50" y="20" width="30" height="40" rx="3" fill="#1f2937" stroke="#22c55e" strokeWidth="1.5"/>
+        <ellipse cx="57" cy="35" rx="3" ry="5" fill="#4b5563"/>
+        <ellipse cx="73" cy="35" rx="3" ry="5" fill="#4b5563"/>
+        <rect x="63" cy="33" width="6" height="3" fill="#4b5563"/>
+        <circle cx="65" cy="50" r="3" fill="#4b5563"/>
+        <text x="65" y="72" textAnchor="middle" fill="#22c55e" fontSize="6">5-20R</text>
+        <rect x="90" y="20" width="20" height="40" rx="3" fill="#1f2937" stroke="#f59e0b" strokeWidth="1.5"/>
+        <circle cx="100" cy="40" r="8" fill="none" stroke="#4b5563" strokeWidth="2"/>
+        <text x="100" y="72" textAnchor="middle" fill="#f59e0b" fontSize="6">L14</text>
+      </svg>
+    ),
   };
 
   return thumbnails[slug] || (
@@ -514,6 +779,186 @@ export const blogPosts = [
     category: "NEC Code",
     date: "2025-02-03",
     readTime: "14 min read",
+    featured: false,
+  },
+  {
+    slug: "bathroom-electrical-code-requirements",
+    title: "Bathroom Electrical Code Requirements: NEC GFCI, Circuit & Receptacle Rules",
+    description: "Complete guide to NEC bathroom electrical requirements including GFCI protection, dedicated circuits, exhaust fan requirements, receptacle placement rules, and lighting circuit sizing.",
+    category: "NEC Code",
+    date: "2025-02-05",
+    readTime: "11 min read",
+    featured: false,
+  },
+  {
+    slug: "underground-wiring-installation-guide",
+    title: "Underground Wiring Installation Guide: NEC Burial Depth & Methods",
+    description: "Complete guide to underground electrical wiring installation. Learn NEC burial depth requirements, direct burial vs conduit methods, UF cable selection, and trenching best practices.",
+    category: "Installation",
+    date: "2025-02-05",
+    readTime: "12 min read",
+    featured: false,
+  },
+  {
+    slug: "electrical-symbols-blueprint-reading",
+    title: "Electrical Symbols & Blueprint Reading: Complete Guide for Electricians",
+    description: "Learn to read electrical blueprints and drawings. Complete guide to electrical symbols, single-line diagrams, three-line diagrams, and plan reading for residential and commercial installations.",
+    category: "Technology",
+    date: "2025-02-05",
+    readTime: "10 min read",
+    featured: false,
+  },
+  {
+    slug: "power-factor-correction-basics",
+    title: "Power Factor Correction Basics: Understanding & Calculating Capacitor Sizing",
+    description: "Learn power factor correction fundamentals for electricians. Understand what causes poor power factor, how to calculate capacitor sizing, kVAR requirements, and NEC considerations.",
+    category: "Calculations",
+    date: "2025-02-05",
+    readTime: "11 min read",
+    featured: false,
+  },
+  {
+    slug: "outdoor-receptacle-requirements-nec",
+    title: "Outdoor Receptacle Requirements NEC: GFCI, Covers & Placement Rules",
+    description: "Complete guide to NEC outdoor receptacle requirements. Learn GFCI protection rules, weatherproof vs in-use cover requirements, placement and height specifications.",
+    category: "NEC Code",
+    date: "2025-02-05",
+    readTime: "9 min read",
+    featured: false,
+  },
+  {
+    slug: "hazardous-locations-nec-500",
+    title: "NEC Article 500: Hazardous Locations Classification Guide",
+    description: "Complete guide to hazardous locations per NEC Article 500. Learn Class I, II, III divisions, Zone classifications, equipment selection, and installation requirements.",
+    category: "NEC Code",
+    date: "2025-02-06",
+    readTime: "14 min read",
+    featured: false,
+  },
+  {
+    slug: "electrical-grounding-vs-bonding",
+    title: "Electrical Grounding vs Bonding: Understanding the Difference",
+    description: "Clear explanation of grounding vs bonding in electrical systems. Learn NEC definitions, when each is required, conductor sizing, and common code violations.",
+    category: "NEC Code",
+    date: "2025-02-06",
+    readTime: "10 min read",
+    featured: false,
+  },
+  {
+    slug: "solar-pv-system-installation-nec-690",
+    title: "Solar PV Installation Guide: NEC Article 690 Requirements",
+    description: "Complete guide to solar PV system installation per NEC 690. Learn rapid shutdown requirements, conductor sizing, disconnects, grounding, and labeling.",
+    category: "Installation",
+    date: "2025-02-06",
+    readTime: "15 min read",
+    featured: false,
+  },
+  {
+    slug: "derating-factors-conductor-ampacity",
+    title: "Derating Factors for Conductor Ampacity: NEC 310.15 Guide",
+    description: "Master conductor ampacity derating factors. Learn temperature correction, conduit fill adjustment, and how to apply NEC Table 310.15 for proper wire sizing.",
+    category: "Calculations",
+    date: "2025-02-06",
+    readTime: "12 min read",
+    featured: false,
+  },
+  {
+    slug: "electrical-service-upgrade-200-amp",
+    title: "200 Amp Service Upgrade: Planning, NEC Requirements & Installation",
+    description: "Complete guide to upgrading residential electrical service to 200 amps. Learn load calculations, NEC requirements, equipment selection, and permit process.",
+    category: "Installation",
+    date: "2025-02-06",
+    readTime: "13 min read",
+    featured: false,
+  },
+  {
+    slug: "swimming-pool-electrical-nec-680",
+    title: "Swimming Pool Electrical Requirements: NEC Article 680 Guide",
+    description: "Master NEC Article 680 for pools, spas, and hot tubs. Learn bonding requirements, GFCI protection, equipment clearances, and underwater lighting rules.",
+    category: "NEC Code",
+    date: "2025-02-06",
+    readTime: "14 min read",
+    featured: false,
+  },
+  {
+    slug: "commercial-lighting-controls-nec",
+    title: "Commercial Lighting Controls: NEC & Energy Code Requirements",
+    description: "Guide to commercial lighting control requirements. Learn occupancy sensors, daylight harvesting, dimming controls, and energy code compliance.",
+    category: "Installation",
+    date: "2025-02-06",
+    readTime: "11 min read",
+    featured: false,
+  },
+  {
+    slug: "temporary-wiring-construction-sites",
+    title: "Temporary Wiring for Construction Sites: NEC Article 590 Guide",
+    description: "Complete guide to temporary power on construction sites per NEC 590. Learn GFCI requirements, cord and cable rules, and temporary service installation.",
+    category: "Installation",
+    date: "2025-02-06",
+    readTime: "10 min read",
+    featured: false,
+  },
+  {
+    slug: "electrical-fault-current-calculations",
+    title: "Electrical Fault Current Calculations: Complete Guide",
+    description: "Learn to calculate available fault current for electrical systems. Understand AIC ratings, short-circuit protection, and equipment coordination.",
+    category: "Calculations",
+    date: "2025-02-06",
+    readTime: "13 min read",
+    featured: false,
+  },
+  {
+    slug: "kitchen-electrical-requirements-nec",
+    title: "Kitchen Electrical Requirements: NEC Code Guide",
+    description: "Complete guide to residential kitchen electrical requirements. Learn small appliance circuits, countertop receptacle spacing, GFCI rules, and dedicated circuits.",
+    category: "NEC Code",
+    date: "2025-02-06",
+    readTime: "12 min read",
+    featured: false,
+  },
+  {
+    slug: "commercial-kitchen-electrical-requirements",
+    title: "Commercial Kitchen Electrical Requirements: NEC Installation Guide",
+    description: "Guide to commercial kitchen electrical installation. Learn equipment circuits, hood ventilation wiring, cord-and-plug connections, and NEC requirements.",
+    category: "Installation",
+    date: "2025-02-07",
+    readTime: "13 min read",
+    featured: false,
+  },
+  {
+    slug: "data-center-electrical-design",
+    title: "Data Center Electrical Design: Power Distribution & Redundancy",
+    description: "Guide to data center electrical systems. Learn power distribution architecture, UPS configurations, generator integration, and Tier classifications.",
+    category: "Installation",
+    date: "2025-02-07",
+    readTime: "14 min read",
+    featured: false,
+  },
+  {
+    slug: "low-voltage-wiring-basics",
+    title: "Low Voltage Wiring Basics: Class 2 & 3 Circuits Guide",
+    description: "Guide to low voltage wiring per NEC Article 725. Learn Class 2 and 3 circuits, separation from power wiring, and structured cabling systems.",
+    category: "Installation",
+    date: "2025-02-07",
+    readTime: "10 min read",
+    featured: false,
+  },
+  {
+    slug: "electrical-safety-nfpa-70e",
+    title: "NFPA 70E Electrical Safety: Arc Flash PPE & Lockout/Tagout Guide",
+    description: "Complete guide to NFPA 70E workplace electrical safety. Learn arc flash PPE categories, approach boundaries, and lockout/tagout procedures.",
+    category: "Safety",
+    date: "2025-02-07",
+    readTime: "12 min read",
+    featured: false,
+  },
+  {
+    slug: "receptacle-types-configurations-guide",
+    title: "Receptacle Types & NEMA Configurations: Complete Guide",
+    description: "Complete guide to NEMA receptacle configurations. Learn 15A, 20A, 30A, 50A receptacles, twist-lock types, and special purpose receptacles.",
+    category: "Materials",
+    date: "2025-02-07",
+    readTime: "9 min read",
     featured: false,
   },
 ];
