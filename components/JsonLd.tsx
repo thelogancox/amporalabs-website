@@ -56,21 +56,34 @@ export function OrganizationJsonLd() {
 export function SoftwareApplicationJsonLd() {
   const appSchema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": "MobileApplication",
     "name": "Ampora - Electrical AI Assistant",
     "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "iOS",
+    "operatingSystem": "iOS 16.0 or later",
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "USD"
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
     },
-    "description": "AI-powered electrical calculator app with voltage drop calculator, wire sizing, conduit fill, arc flash analysis, load calculations, NEC code reference, and photo analysis for electricians.",
+    "description": "AI-powered electrical calculator app with voltage drop calculator, wire sizing, conduit fill, arc flash analysis, load calculations, NEC code reference, and photo analysis for electricians. Used by professional electricians and electrical engineers for NEC-compliant field calculations.",
+    "url": "https://amporalabs.com",
     "downloadUrl": "https://apps.apple.com/us/app/ampora/id6753693522",
+    "installUrl": "https://apps.apple.com/us/app/ampora/id6753693522",
+    "screenshot": "https://amporalabs.com/opengraph-image",
+    "softwareVersion": "1.0",
+    "datePublished": "2024-01-01",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",
-      "ratingCount": "100"
+      "ratingCount": "100",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Ampora Labs",
+      "url": "https://amporalabs.com"
     },
     "featureList": [
       "AI-Powered Electrical Assistant",
@@ -102,10 +115,26 @@ export function WebsiteJsonLd() {
     "alternateName": "Ampora Labs",
     "url": "https://amporalabs.com",
     "description": "Professional electrical calculator app with AI assistant, voltage drop, wire sizing, conduit fill, arc flash, and NEC code reference tools for electricians.",
+    "inLanguage": "en-US",
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString().split('T')[0],
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://amporalabs.com/?q={search_term_string}",
       "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ampora Labs",
+      "url": "https://amporalabs.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://amporalabs.com/icon-512.png"
+      }
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", ".hero-description", ".faq-answer", "h2"]
     }
   };
 
@@ -456,6 +485,7 @@ export function BlogPostingJsonLd({
     "image": image || "https://amporalabs.com/opengraph-image",
     "datePublished": datePublished,
     "dateModified": dateModified || datePublished,
+    "inLanguage": "en-US",
     "author": {
       "@type": "Organization",
       "name": "Ampora Labs",
@@ -466,12 +496,21 @@ export function BlogPostingJsonLd({
       "name": "Ampora Labs",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://amporalabs.com/ampora-logo.png"
+        "url": "https://amporalabs.com/icon-512.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": url
+    },
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "Ampora Labs Electrical Blog",
+      "url": "https://amporalabs.com/blog"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", ".summary", "p:first-of-type"]
     },
     ...(articleBody && { "articleBody": articleBody }),
     ...(wordCount && { "wordCount": wordCount }),

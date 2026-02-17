@@ -216,9 +216,9 @@ export default function Hero() {
 
                 {/* Tagline under logo */}
                 <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                  <p className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                  <h1 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
                     Power Up Your Workflow
-                  </p>
+                  </h1>
                 </div>
               </div>
             </div>

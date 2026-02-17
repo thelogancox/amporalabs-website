@@ -201,14 +201,16 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  other: {
+    "apple-itunes-app": "app-id=6753693522",
+    // Allow maximum content extraction for AI search engines
+    "robots": "max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+  },
   alternates: {
     canonical: "https://amporalabs.com",
   },
   verification: {
     google: "ZyKjyOrD-R9DNsuhW92GCS5wc1OvzeeDmdz5XFp3fRg",
-  },
-  other: {
-    "apple-itunes-app": "app-id=6753693522",
   },
   icons: {
     icon: [

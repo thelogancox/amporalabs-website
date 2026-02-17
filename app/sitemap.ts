@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-// Blog post data for sitemap generation
+// Blog post data for sitemap generation - all 63 posts
 const blogPosts = [
   { slug: 'nec-article-210-branch-circuits-guide', date: '2025-01-27' },
   { slug: 'how-to-calculate-voltage-drop', date: '2025-01-23' },
@@ -22,6 +22,50 @@ const blogPosts = [
   { slug: 'ev-charger-installation-guide', date: '2025-01-30' },
   { slug: 'transformer-sizing-guide', date: '2025-02-01' },
   { slug: 'emergency-standby-power-systems', date: '2025-02-03' },
+  // Batch 2: Added 2025-02-05
+  { slug: 'bathroom-electrical-code-requirements', date: '2025-02-05' },
+  { slug: 'underground-wiring-installation-guide', date: '2025-02-05' },
+  { slug: 'electrical-symbols-blueprint-reading', date: '2025-02-05' },
+  { slug: 'power-factor-correction-basics', date: '2025-02-05' },
+  { slug: 'outdoor-receptacle-requirements-nec', date: '2025-02-05' },
+  // Batch 3: Added 2025-02-06
+  { slug: 'hazardous-locations-nec-500', date: '2025-02-06' },
+  { slug: 'electrical-grounding-vs-bonding', date: '2025-02-06' },
+  { slug: 'solar-pv-system-installation-nec-690', date: '2025-02-06' },
+  { slug: 'derating-factors-conductor-ampacity', date: '2025-02-06' },
+  { slug: 'electrical-service-upgrade-200-amp', date: '2025-02-06' },
+  { slug: 'swimming-pool-electrical-nec-680', date: '2025-02-06' },
+  { slug: 'commercial-lighting-controls-nec', date: '2025-02-06' },
+  { slug: 'temporary-wiring-construction-sites', date: '2025-02-06' },
+  { slug: 'electrical-fault-current-calculations', date: '2025-02-06' },
+  { slug: 'kitchen-electrical-requirements-nec', date: '2025-02-06' },
+  // Batch 4: Added 2025-02-07
+  { slug: 'commercial-kitchen-electrical-requirements', date: '2025-02-07' },
+  { slug: 'data-center-electrical-design', date: '2025-02-07' },
+  { slug: 'low-voltage-wiring-basics', date: '2025-02-07' },
+  { slug: 'electrical-safety-nfpa-70e', date: '2025-02-07' },
+  { slug: 'receptacle-types-configurations-guide', date: '2025-02-07' },
+  // Batch 5: Added 2025-02-08
+  { slug: 'garage-electrical-requirements-nec', date: '2025-02-08' },
+  { slug: 'electrical-conduit-types-guide', date: '2025-02-08' },
+  { slug: 'whole-house-surge-protection-nec', date: '2025-02-08' },
+  { slug: 'smoke-detector-wiring-requirements', date: '2025-02-08' },
+  { slug: 'electrical-wire-color-code-guide', date: '2025-02-08' },
+  { slug: 'generator-transfer-switch-installation', date: '2025-02-08' },
+  { slug: 'electrical-load-balancing-guide', date: '2025-02-08' },
+  { slug: 'nec-article-334-romex-nm-cable', date: '2025-02-08' },
+  { slug: 'multimeter-guide-electricians', date: '2025-02-08' },
+  { slug: 'nec-working-space-clearances-110-26', date: '2025-02-08' },
+  { slug: 'whole-house-rewiring-guide', date: '2025-02-08' },
+  { slug: 'electrical-apprenticeship-career-guide', date: '2025-02-08' },
+  { slug: 'fire-alarm-wiring-nec-760', date: '2025-02-08' },
+  { slug: 'panel-schedule-labeling-nec-408', date: '2025-02-08' },
+  { slug: 'disconnect-switch-requirements-nec', date: '2025-02-08' },
+  { slug: 'knob-and-tube-wiring-guide', date: '2025-02-08' },
+  { slug: 'receptacle-height-requirements-nec', date: '2025-02-08' },
+  { slug: 'electrical-estimating-contractors', date: '2025-02-08' },
+  { slug: 'surge-arrester-vs-tvss', date: '2025-02-08' },
+  { slug: 'nec-article-230-service-requirements', date: '2025-02-08' },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

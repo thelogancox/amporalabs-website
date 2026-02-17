@@ -72,7 +72,7 @@ export default function Footer() {
                     </button>
                     {open === index && (
                       <div className="px-4 pb-4">
-                        <p className="text-sm text-white/50 leading-relaxed">{faq.a}</p>
+                        <p className="faq-answer text-sm text-white/50 leading-relaxed">{faq.a}</p>
                       </div>
                     )}
                   </div>
