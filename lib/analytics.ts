@@ -99,6 +99,9 @@ export interface SourceMediumData {
   users: number;
   newUsers: number;
   bounceRate: number;
+  engagementRate: number;
+  avgSessionDuration: number;
+  pagesPerSession: number;
   percentage: number;
 }
 
@@ -525,6 +528,9 @@ export async function getSourceMediumBreakdown(startDate: string = '7daysAgo'): 
         { name: 'activeUsers' },
         { name: 'newUsers' },
         { name: 'bounceRate' },
+        { name: 'engagementRate' },
+        { name: 'averageSessionDuration' },
+        { name: 'screenPageViewsPerSession' },
       ],
       orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
       limit: 15,
@@ -543,6 +549,9 @@ export async function getSourceMediumBreakdown(startDate: string = '7daysAgo'): 
         users: parseInt(row.metricValues?.[1]?.value || '0', 10),
         newUsers: parseInt(row.metricValues?.[2]?.value || '0', 10),
         bounceRate: parseFloat(row.metricValues?.[3]?.value || '0'),
+        engagementRate: parseFloat(row.metricValues?.[4]?.value || '0'),
+        avgSessionDuration: parseFloat(row.metricValues?.[5]?.value || '0'),
+        pagesPerSession: parseFloat(row.metricValues?.[6]?.value || '0'),
         percentage: totalSessions > 0 ? (sessions / totalSessions) * 100 : 0,
       };
     });

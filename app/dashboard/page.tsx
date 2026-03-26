@@ -60,6 +60,9 @@ interface AnalyticsData {
     users: number;
     newUsers: number;
     bounceRate: number;
+    engagementRate: number;
+    avgSessionDuration: number;
+    pagesPerSession: number;
     percentage: number;
   }>;
   campaigns: Array<{

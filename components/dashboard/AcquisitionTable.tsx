@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDownRight, ArrowUpRight, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface SourceMediumData {
   source: string;
@@ -9,6 +9,9 @@ interface SourceMediumData {
   users: number;
   newUsers: number;
   bounceRate: number;
+  engagementRate: number;
+  avgSessionDuration: number;
+  pagesPerSession: number;
   percentage: number;
 }
 
@@ -36,7 +39,15 @@ function getMediumBadge(medium: string) {
 
 function formatSource(source: string): string {
   if (source === "(direct)") return "Direct";
+  if (source === "(not set)") return "Unknown";
   return source.charAt(0).toUpperCase() + source.slice(1);
+}
+
+function formatDuration(seconds: number): string {
+  if (seconds < 60) return `${Math.round(seconds)}s`;
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.round(seconds % 60);
+  return `${mins}m ${secs}s`;
 }
 
 export function AcquisitionTable({ data, loading }: AcquisitionTableProps) {
@@ -77,8 +88,10 @@ export function AcquisitionTable({ data, loading }: AcquisitionTableProps) {
                 <th className="pb-3 font-medium">Medium</th>
                 <th className="pb-3 font-medium text-right">Sessions</th>
                 <th className="pb-3 font-medium text-right hidden sm:table-cell">Users</th>
-                <th className="pb-3 font-medium text-right hidden md:table-cell">New</th>
-                <th className="pb-3 font-medium text-right hidden lg:table-cell">Bounce</th>
+                <th className="pb-3 font-medium text-right hidden md:table-cell">Engage</th>
+                <th className="pb-3 font-medium text-right hidden lg:table-cell">Avg Time</th>
+                <th className="pb-3 font-medium text-right hidden lg:table-cell">Pages/Sess</th>
+                <th className="pb-3 font-medium text-right hidden xl:table-cell">Bounce</th>
                 <th className="pb-3 font-medium text-right">Share</th>
               </tr>
             </thead>
@@ -103,10 +116,18 @@ export function AcquisitionTable({ data, loading }: AcquisitionTableProps) {
                     <td className="py-3 text-right text-white/70 text-sm hidden sm:table-cell">
                       {row.users.toLocaleString()}
                     </td>
-                    <td className="py-3 text-right text-white/70 text-sm hidden md:table-cell">
-                      {row.newUsers.toLocaleString()}
+                    <td className="py-3 text-right hidden md:table-cell">
+                      <span className={`text-sm ${row.engagementRate > 0.6 ? "text-emerald-400" : row.engagementRate > 0.4 ? "text-amber-400" : "text-red-400"}`}>
+                        {(row.engagementRate * 100).toFixed(1)}%
+                      </span>
                     </td>
-                    <td className="py-3 text-right hidden lg:table-cell">
+                    <td className="py-3 text-right text-white/70 text-sm hidden lg:table-cell">
+                      {formatDuration(row.avgSessionDuration)}
+                    </td>
+                    <td className="py-3 text-right text-white/70 text-sm hidden lg:table-cell">
+                      {row.pagesPerSession.toFixed(1)}
+                    </td>
+                    <td className="py-3 text-right hidden xl:table-cell">
                       <span className={`text-sm ${row.bounceRate > 0.6 ? "text-red-400" : row.bounceRate > 0.4 ? "text-amber-400" : "text-emerald-400"}`}>
                         {(row.bounceRate * 100).toFixed(1)}%
                       </span>
