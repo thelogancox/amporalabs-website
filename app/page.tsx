@@ -1,17 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import BubbleBackground from "@/components/BubbleBackground";
 import SmoothScroll from "@/components/SmoothScroll";
-
-// Dynamically import Preloader to avoid SSR issues
-const Preloader = dynamic(() => import("@/components/Preloader"), {
-  ssr: false,
-});
 
 // Lazy load below-the-fold components for better initial load performance
 const AIDemo = dynamic(() => import("@/components/AIDemo"), {
@@ -34,92 +28,60 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 });
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    // Paid traffic skips the preloader entirely. We bought this click; the
-    // brand flourish is not worth a second of their attention before they
-    // can see the download button.
-    const params = new URLSearchParams(window.location.search);
-    if (params.has("fbclid") || params.has("gclid") || params.has("utm_source")) {
-      return;
-    }
-
-    const timer = setTimeout(() => {
-      setShowContent(true);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handlePreloaderComplete = () => {
-    setIsLoading(false);
-  };
-
   return (
-    <>
-      {/* Preloader */}
-      {isLoading && showContent && <Preloader onComplete={handlePreloaderComplete} />}
+    <SmoothScroll>
+      <main className="relative min-h-screen bg-black overflow-hidden">
+        {/* Global Background Effects */}
+        <BubbleBackground />
 
-      {/* Main Content */}
-      <SmoothScroll>
-        {/* Never gated on the preloader: the preloader is a fixed overlay that
-            dissolves away, so content underneath is painted and tappable as
-            soon as it renders. */}
-        <main className="relative min-h-screen bg-black overflow-hidden">
-          {/* Global Background Effects */}
-          <BubbleBackground />
+        {/* Navigation */}
+        <Navigation />
 
-          {/* Navigation */}
-          <Navigation />
+        {/* Hero Section */}
+        <Hero />
 
-          {/* Hero Section */}
-          <Hero />
+        {/* Section Divider */}
+        <div className="section-divider" />
 
-          {/* Section Divider */}
-          <div className="section-divider" />
+        {/* Features Grid */}
+        <section data-animate="fade-up">
+          <Features />
+        </section>
 
-          {/* Features Grid */}
-          <section data-animate="fade-up">
-            <Features />
-          </section>
+        {/* AI Demo - Interactive */}
+        <section data-animate="fade-up">
+          <AIDemo />
+        </section>
 
-          {/* AI Demo - Interactive */}
-          <section data-animate="fade-up">
-            <AIDemo />
-          </section>
+        {/* Section Divider */}
+        <div className="section-divider" />
 
-          {/* Section Divider */}
-          <div className="section-divider" />
+        {/* Calculator Showcase */}
+        <section data-animate="fade-up">
+          <Calculators />
+        </section>
 
-          {/* Calculator Showcase */}
-          <section data-animate="fade-up">
-            <Calculators />
-          </section>
+        {/* Photo Analysis Demo */}
+        <section data-animate="fade-up">
+          <PhotoAnalysis />
+        </section>
 
-          {/* Photo Analysis Demo */}
-          <section data-animate="fade-up">
-            <PhotoAnalysis />
-          </section>
+        {/* Section Divider */}
+        <div className="section-divider" />
 
-          {/* Section Divider */}
-          <div className="section-divider" />
+        {/* Quick Reference */}
+        <section data-animate="fade-up">
+          <QuickReference />
+        </section>
 
-          {/* Quick Reference */}
-          <section data-animate="fade-up">
-            <QuickReference />
-          </section>
+        {/* Testimonials */}
+        <section data-animate="fade-up">
+          <Testimonials />
+        </section>
 
-          {/* Testimonials */}
-          <section data-animate="fade-up">
-            <Testimonials />
-          </section>
-
-          {/* Footer with FAQ + CTA */}
-          <Footer />
-        </main>
-      </SmoothScroll>
-    </>
+        {/* Footer with FAQ + CTA */}
+        <Footer />
+      </main>
+    </SmoothScroll>
   );
 }
