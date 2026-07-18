@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Zap, ArrowRight, ChevronDown } from "lucide-react";
 import { analyticsEvents } from "@/components/GoogleAnalytics";
@@ -9,7 +9,6 @@ import PhoneMockup from "./PhoneMockup";
 import Marquee from "./Marquee";
 
 export default function Hero() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
@@ -19,69 +18,50 @@ export default function Hero() {
   const phoneRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Start animations after a brief delay
-    const timer = setTimeout(() => setIsLoaded(true), 300);
+    // If hydration landed late (slow device, weak connection, in-app browser)
+    // the content has already been on screen for a while. Animating it in at
+    // that point reads as a glitch, so skip straight to the resting state.
+    if (performance.now() > 1200) return;
 
-    // GSAP entrance animations
+    // Entrance animates transforms only, never opacity: the hero must never
+    // have an invisible state, whatever happens to the JS bundle.
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 0.5 });
+      const tl = gsap.timeline();
 
-      tl.fromTo(
-        badgeRef.current,
-        { opacity: 0, y: 20, scale: 0.9 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out" }
-      )
-        .fromTo(
+      tl.from(badgeRef.current, {
+        y: 16,
+        scale: 0.95,
+        duration: 0.5,
+        ease: "power3.out",
+      })
+        .from(
           logoRef.current,
-          { opacity: 0, scale: 0.8, rotateY: -15 },
-          {
-            opacity: 1,
-            scale: 1,
-            rotateY: 0,
-            duration: 1.2,
-            ease: "power3.out",
-          },
-          "-=0.4"
+          { y: 24, scale: 0.92, duration: 0.6, ease: "power3.out" },
+          "-=0.35"
         )
-        .fromTo(
+        .from(
           subheadRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
-          "-=0.6"
-        )
-        .fromTo(
-          ctaRef.current?.children || [],
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" },
+          { y: 16, duration: 0.5, ease: "power3.out" },
           "-=0.4"
         )
-        .fromTo(
-          statsRef.current?.children || [],
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: "power3.out" },
+        .from(
+          ctaRef.current?.children || [],
+          { y: 16, duration: 0.4, stagger: 0.06, ease: "power3.out" },
           "-=0.3"
         )
-        .fromTo(
+        .from(
+          statsRef.current?.children || [],
+          { y: 16, duration: 0.4, stagger: 0.06, ease: "power3.out" },
+          "-=0.25"
+        )
+        .from(
           phoneRef.current,
-          { opacity: 0, y: 60, scale: 0.9, rotateY: -10 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            rotateY: 0,
-            duration: 1.2,
-            ease: "power3.out",
-          },
-          "-=0.8"
+          { y: 40, scale: 0.95, duration: 0.6, ease: "power3.out" },
+          "-=0.5"
         );
-
-      // Floating animation disabled for scroll performance
     });
 
-    return () => {
-      clearTimeout(timer);
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -97,7 +77,7 @@ export default function Hero() {
             {/* Badge */}
             <div
               ref={badgeRef}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ampora-500/10 border border-ampora-500/30 mb-8 opacity-0"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ampora-500/10 border border-ampora-500/30 mb-8"
             >
               <div className="w-2 h-2 rounded-full bg-ampora-400 animate-pulse" />
               <span className="text-sm text-ampora-300 font-medium tracking-wide">
@@ -108,7 +88,7 @@ export default function Hero() {
             {/* Large Animated Ampora Logo */}
             <div
               ref={logoRef}
-              className="relative mb-10 flex justify-center lg:justify-start opacity-0"
+              className="relative mb-10 flex justify-center lg:justify-start"
               style={{ perspective: "1000px" }}
             >
               {/* Simplified glows - reduced blur for performance */}
@@ -226,7 +206,7 @@ export default function Hero() {
             {/* Subheadline - with extra top margin to account for tagline */}
             <p
               ref={subheadRef}
-              className="text-lg sm:text-xl text-white/50 max-w-xl mx-auto lg:mx-0 mb-10 mt-16 leading-relaxed opacity-0"
+              className="text-lg sm:text-xl text-white/50 max-w-xl mx-auto lg:mx-0 mb-10 mt-16 leading-relaxed"
             >
               NEC code-backed answers in seconds. Professional calculators at your fingertips.
               Photo analysis that sees what you see. All powered by AI.
@@ -242,7 +222,7 @@ export default function Hero() {
                target="_blank"
                rel="noopener noreferrer"
                onClick={() => analyticsEvents.downloadClick('hero')}
-                                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-ampora-500 to-ampora-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)] opacity-0"
+                                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-ampora-500 to-ampora-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-ampora-400 to-ampora-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <svg
@@ -258,7 +238,7 @@ export default function Hero() {
 
               <a
                 href="#features"
-                className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-white/10 bg-white/5 text-white font-semibold text-lg backdrop-blur-sm transition-all duration-300 hover:border-ampora-500/50 hover:bg-ampora-500/10 opacity-0"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-white/10 bg-white/5 text-white font-semibold text-lg backdrop-blur-sm transition-all duration-300 hover:border-ampora-500/50 hover:bg-ampora-500/10"
               >
                 <Zap className="w-5 h-5 text-ampora-400 group-hover:animate-pulse" />
                 <span>See Features</span>
@@ -275,7 +255,7 @@ export default function Hero() {
                 { value: "24/7", label: "AI Assistant", suffix: "" },
                 { value: "NEC", label: "Code Backed", suffix: "" },
               ].map((stat, index) => (
-                <div key={index} className="text-center lg:text-left opacity-0">
+                <div key={index} className="text-center lg:text-left">
                   <div className="text-3xl font-display font-bold text-white flex items-baseline justify-center lg:justify-start gap-1">
                     <span>{stat.value}</span>
                     <span className="text-ampora-400">{stat.suffix}</span>
@@ -289,7 +269,7 @@ export default function Hero() {
           {/* Phone Mockup */}
           <div
             ref={phoneRef}
-            className="relative flex justify-center lg:justify-end opacity-0"
+            className="relative flex justify-center lg:justify-end"
             style={{ perspective: "1000px" }}
           >
             {/* Glow behind phone - simplified for performance */}

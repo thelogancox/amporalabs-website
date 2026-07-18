@@ -26,7 +26,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
       targetText.split("").forEach((finalChar, index) => {
         setTimeout(() => {
           let iteration = 0;
-          const maxIterations = 6; // Reduced from 10
+          const maxIterations = 4;
 
           const interval = setInterval(() => {
             iteration++;
@@ -40,7 +40,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
               });
 
               if (index === targetText.length - 1) {
-                setTimeout(() => setTextRevealed(true), 150);
+                setTimeout(() => setTextRevealed(true), 80);
               }
             } else {
               setDisplayText(prev => {
@@ -49,12 +49,12 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
                 return newArr;
               });
             }
-          }, 40); // Faster interval (was 60)
+          }, 30);
 
           intervalsRef.current.push(interval);
-        }, index * 80); // Faster stagger (was 150)
+        }, index * 45);
       });
-    }, 200);
+    }, 80);
 
     return () => clearTimeout(startDelay);
   }, []);
@@ -62,7 +62,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
   // Dissolve after text revealed
   useEffect(() => {
     if (!textRevealed) return;
-    const timer = setTimeout(() => setDissolving(true), 500); // Shorter pause
+    const timer = setTimeout(() => setDissolving(true), 220);
     return () => clearTimeout(timer);
   }, [textRevealed]);
 
@@ -72,7 +72,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
     const timer = setTimeout(() => {
       setDone(true);
       onComplete();
-    }, 600);
+    }, 400);
     return () => clearTimeout(timer);
   }, [dissolving, onComplete]);
 
@@ -83,7 +83,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
       className="fixed inset-0 z-[100] bg-black flex items-center justify-center overflow-hidden"
       style={{
         opacity: dissolving ? 0 : 1,
-        transition: 'opacity 0.5s ease-out',
+        transition: 'opacity 0.4s ease-out',
       }}
     >
       {/* Subtle grid background */}

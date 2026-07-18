@@ -38,7 +38,14 @@ export default function Home() {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // Simulate loading and show preloader
+    // Paid traffic skips the preloader entirely. We bought this click; the
+    // brand flourish is not worth a second of their attention before they
+    // can see the download button.
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("fbclid") || params.has("gclid") || params.has("utm_source")) {
+      return;
+    }
+
     const timer = setTimeout(() => {
       setShowContent(true);
     }, 100);
@@ -57,11 +64,10 @@ export default function Home() {
 
       {/* Main Content */}
       <SmoothScroll>
-        <main
-          className={`relative min-h-screen bg-black overflow-hidden transition-opacity duration-500 ${
-            isLoading ? "opacity-0" : "opacity-100"
-          }`}
-        >
+        {/* Never gated on the preloader: the preloader is a fixed overlay that
+            dissolves away, so content underneath is painted and tappable as
+            soon as it renders. */}
+        <main className="relative min-h-screen bg-black overflow-hidden">
           {/* Global Background Effects */}
           <BubbleBackground />
 

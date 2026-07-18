@@ -26,13 +26,14 @@ export default function Navigation() {
     // Use passive listener for better scroll performance
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Entrance animation
-    if (navRef.current) {
-      gsap.fromTo(
-        navRef.current,
-        { y: -100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.2 }
-      );
+    // Entrance slides only, never fades: the nav must never be invisible.
+    // Skipped entirely if hydration landed late and it is already on screen.
+    if (navRef.current && performance.now() < 1200) {
+      gsap.from(navRef.current, {
+        y: -80,
+        duration: 0.6,
+        ease: "power3.out",
+      });
     }
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -68,7 +69,7 @@ export default function Navigation() {
     <>
       <nav
         ref={navRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 opacity-0 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-black/90 backdrop-blur-md border-b border-white/5"
             : "bg-transparent"
