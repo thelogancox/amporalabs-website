@@ -196,8 +196,12 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Tagline under logo */}
-                <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                {/* Tagline under logo. Centred under the logo on mobile (where
+                    the whole column is centred), but flush-left on desktop:
+                    the text is wider than the 280px logo, so centring it there
+                    made it overhang the column's left edge by ~24px while the
+                    badge, subhead, buttons and stats all sat at the margin. */}
+                <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 whitespace-nowrap">
                   <h1 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
                     Power Up Your Workflow
                   </h1>
