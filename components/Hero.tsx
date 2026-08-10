@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Zap, ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { analyticsEvents } from "@/components/GoogleAnalytics";
 import { gsap } from "gsap";
 import PhoneMockup from "./PhoneMockup";
@@ -224,11 +224,11 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => analyticsEvents.downloadClick('hero-ios')}
-                className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-gradient-to-r from-ampora-500 to-ampora-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-ampora-500 to-ampora-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-ampora-400 to-ampora-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <AppleIcon className="relative w-6 h-6" />
-                <span className="relative">App Store</span>
+                <span className="relative whitespace-nowrap">App Store</span>
                 <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
 
@@ -237,20 +237,12 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => analyticsEvents.downloadClick('hero-android')}
-                className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-gradient-to-r from-ampora-500 to-ampora-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-ampora-500 to-ampora-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-ampora-400 to-ampora-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <GooglePlayIcon className="relative w-6 h-6" />
-                <span className="relative">Google Play</span>
+                <span className="relative whitespace-nowrap">Google Play</span>
                 <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-
-              <a
-                href="#features"
-                className="group inline-flex items-center gap-3 px-7 py-4 rounded-xl border border-white/10 bg-white/5 text-white font-semibold text-lg backdrop-blur-sm transition-all duration-300 hover:border-ampora-500/50 hover:bg-ampora-500/10"
-              >
-                <Zap className="w-5 h-5 text-ampora-400 group-hover:animate-pulse" />
-                <span>See Features</span>
               </a>
             </div>
 

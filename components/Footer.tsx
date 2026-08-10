@@ -10,7 +10,7 @@ const faqs = [
   { q: "What NEC version does Ampora use?", a: "Ampora references the 2023 NEC. We update with each new code cycle." },
   { q: "Can I use Ampora offline?", a: "All 6 calculators work offline. AI and photo features require internet." },
   { q: "How does photo analysis work?", a: "Snap a photo, our AI identifies equipment, checks NEC compliance, and provides recommendations." },
-  { q: "Can I cancel anytime?", a: "Yes, cancel through the App Store anytime during or after your trial." },
+  { q: "Can I cancel anytime?", a: "Yes, cancel through the App Store or Google Play anytime during or after your trial." },
 ];
 
 export default function Footer() {

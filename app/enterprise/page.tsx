@@ -315,7 +315,7 @@ export default function EnterprisePage() {
               </a>
             </div>
             <p className="text-white/40 text-sm mt-6">
-              Individual electricians: Download free from the App Store. No credit card required.
+              Individual electricians: Download free on iOS or Android. No credit card required.
             </p>
           </div>
         </section>

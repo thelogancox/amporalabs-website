@@ -269,7 +269,7 @@ export default function NECCodeReferencePage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"
           >
-            Download Free on App Store
+            Download Free
           </a>
         </section>
       </article>
