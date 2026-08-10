@@ -7,6 +7,8 @@ import { analyticsEvents } from "@/components/GoogleAnalytics";
 import { gsap } from "gsap";
 import PhoneMockup from "./PhoneMockup";
 import Marquee from "./Marquee";
+import { AppleIcon, GooglePlayIcon } from "./StoreIcons";
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/store";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -218,27 +220,34 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a
-                href="https://apps.apple.com/us/app/ampora/id6753693522"
-               target="_blank"
-               rel="noopener noreferrer"
-               onClick={() => analyticsEvents.downloadClick('hero')}
-                                className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-ampora-500 to-ampora-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]"
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => analyticsEvents.downloadClick('hero-ios')}
+                className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-gradient-to-r from-ampora-500 to-ampora-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-ampora-400 to-ampora-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <svg
-                  className="relative w-6 h-6"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-                </svg>
-                <span className="relative">Download for iOS</span>
+                <AppleIcon className="relative w-6 h-6" />
+                <span className="relative">App Store</span>
+                <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <a
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => analyticsEvents.downloadClick('hero-android')}
+                className="group relative inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-gradient-to-r from-ampora-500 to-ampora-600 text-white font-semibold text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(139,92,246,0.4)]"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-ampora-400 to-ampora-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <GooglePlayIcon className="relative w-6 h-6" />
+                <span className="relative">Google Play</span>
                 <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a
                 href="#features"
-                className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-white/10 bg-white/5 text-white font-semibold text-lg backdrop-blur-sm transition-all duration-300 hover:border-ampora-500/50 hover:bg-ampora-500/10"
+                className="group inline-flex items-center gap-3 px-7 py-4 rounded-xl border border-white/10 bg-white/5 text-white font-semibold text-lg backdrop-blur-sm transition-all duration-300 hover:border-ampora-500/50 hover:bg-ampora-500/10"
               >
                 <Zap className="w-5 h-5 text-ampora-400 group-hover:animate-pulse" />
                 <span>See Features</span>

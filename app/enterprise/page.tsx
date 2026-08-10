@@ -66,7 +66,7 @@ export default function EnterprisePage() {
               Contact Sales
             </a>
             <a
-              href="https://apps.apple.com/us/app/ampora/id6753693522"
+              href="/get"
              target="_blank"
              rel="noopener noreferrer"
                             className="px-8 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-colors"
@@ -306,7 +306,7 @@ export default function EnterprisePage() {
                 Contact Sales
               </a>
               <a
-                href="https://apps.apple.com/us/app/ampora/id6753693522"
+                href="/get"
                target="_blank"
                rel="noopener noreferrer"
                                 className="px-8 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-colors"

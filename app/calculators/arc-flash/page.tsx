@@ -81,7 +81,7 @@ export default function ArcFlashCalculator() {
             Calculate incident energy, arc flash boundaries, and required PPE categories for electrical safety. Based on NFPA 70E and IEEE 1584 standards.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-500 transition-colors"
@@ -247,7 +247,7 @@ export default function ArcFlashCalculator() {
             Quick arc flash calculations on the job. Enter system parameters and get instant incident energy, PPE category, and arc flash boundary results.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"

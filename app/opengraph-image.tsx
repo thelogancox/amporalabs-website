@@ -138,7 +138,7 @@ export default async function Image() {
             fontSize: 18,
           }}
         >
-          <span>Download on the App Store</span>
+          <span>Download Ampora</span>
           <span style={{ color: "rgba(139, 92, 246, 0.6)" }}>•</span>
           <span>iOS</span>
         </div>

@@ -62,7 +62,7 @@ export default function Calculators() {
         {/* CTA */}
         <div className="text-center mt-12">
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
            target="_blank"
            rel="noopener noreferrer"
                         className="btn-primary inline-flex"

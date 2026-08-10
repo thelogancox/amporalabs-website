@@ -60,7 +60,7 @@ export default function TroubleshootingPage() {
             Interactive step-by-step diagnosis for electrical problems. From dead circuits to motor failures, get systematic troubleshooting guidance with AI assistance.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-500 transition-colors"
@@ -264,7 +264,7 @@ export default function TroubleshootingPage() {
             Interactive troubleshooting guides plus AI assistance. Solve problems faster and learn along the way.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"

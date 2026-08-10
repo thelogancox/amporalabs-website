@@ -81,7 +81,7 @@ export default function LoadCalculator() {
             Calculate electrical service size and panel loads using NEC Article 220 demand factors. Perfect for residential and commercial load calculations.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-500 transition-colors"
@@ -244,7 +244,7 @@ export default function LoadCalculator() {
             Enter your loads and get instant service sizing with automatic demand factor application. All NEC tables built-in.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"

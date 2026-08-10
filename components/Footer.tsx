@@ -100,7 +100,7 @@ export default function Footer() {
                 </p>
 
                 <a
-                  href="https://apps.apple.com/us/app/ampora/id6753693522"
+                  href="/get"
                  target="_blank"
                  rel="noopener noreferrer"
                  onClick={() => analyticsEvents.downloadClick('footer-cta')}
@@ -257,7 +257,7 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-8">
             {/* App Store CTA with Ampora logo */}
             <a
-              href="https://apps.apple.com/us/app/ampora/id6753693522"
+              href="/get"
              target="_blank"
              rel="noopener noreferrer"
              onClick={() => analyticsEvents.downloadClick('footer-bottom')}

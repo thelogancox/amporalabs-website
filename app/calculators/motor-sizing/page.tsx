@@ -79,7 +79,7 @@ export default function MotorSizingCalculator() {
             Calculate motor full load current, overcurrent protection, conductor sizing, and starter selection per NEC Article 430.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-500 transition-colors"
@@ -291,7 +291,7 @@ export default function MotorSizingCalculator() {
             Enter motor HP and voltage - get complete circuit sizing instantly. All NEC Article 430 tables and calculations built-in.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"

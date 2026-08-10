@@ -214,7 +214,7 @@ export default function AboutPage() {
               Join thousands of electricians using Ampora to work smarter. Download free from the App Store.
             </p>
             <a
-              href="https://apps.apple.com/us/app/ampora/id6753693522"
+              href="/get"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"

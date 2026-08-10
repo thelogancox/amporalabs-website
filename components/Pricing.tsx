@@ -61,7 +61,7 @@ export default function Pricing() {
 
           {/* CTA */}
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
            target="_blank"
            rel="noopener noreferrer"
            onClick={() => analyticsEvents.downloadClick('pricing')}

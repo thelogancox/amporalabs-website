@@ -319,7 +319,7 @@ export default function ElectricalAppsSoftwareGuidePage() {
                       <li><strong>Free on iOS:</strong> No subscription required for core features</li>
                     </ul>
                     <a
-                      href="https://apps.apple.com/us/app/ampora/id6753693522"
+                      href="/get"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors text-sm"
@@ -572,7 +572,7 @@ export default function ElectricalAppsSoftwareGuidePage() {
                   <p className="text-white/60 text-sm">Instant NEC code answers, electrical calculators, and AI troubleshooting. Free on iOS.</p>
                 </div>
                 <a
-                  href="https://apps.apple.com/us/app/ampora/id6753693522"
+                  href="/get"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors text-sm whitespace-nowrap"
@@ -645,7 +645,7 @@ export default function ElectricalAppsSoftwareGuidePage() {
                 <div className="bg-white/5 rounded-xl p-6">
                   <h3 className="font-semibold text-white mb-2">Ampora for Study</h3>
                   <p className="text-white/60 text-sm">
-                    While not a traditional exam prep app, <a href="https://apps.apple.com/us/app/ampora/id6753693522" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Ampora&apos;s AI-powered NEC search</a> is an excellent study companion. Ask questions like &ldquo;Explain the difference between GFCI and AFCI protection&rdquo; or &ldquo;What are the dwelling unit small appliance circuit requirements?&rdquo; and get detailed, code-referenced explanations that deepen your understanding.
+                    While not a traditional exam prep app, <a href="/get" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Ampora&apos;s AI-powered NEC search</a> is an excellent study companion. Ask questions like &ldquo;Explain the difference between GFCI and AFCI protection&rdquo; or &ldquo;What are the dwelling unit small appliance circuit requirements?&rdquo; and get detailed, code-referenced explanations that deepen your understanding.
                   </p>
                 </div>
                 <div className="bg-white/5 rounded-xl p-6">
@@ -858,7 +858,7 @@ export default function ElectricalAppsSoftwareGuidePage() {
                   <div>
                     <p className="font-semibold text-white">AI-Powered NEC Reference &amp; Calculator</p>
                     <p className="text-white/60 text-sm">
-                      <strong>Recommended: <a href="https://apps.apple.com/us/app/ampora/id6753693522" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Ampora</a> (Free)</strong> &mdash; Covers NEC code lookups, voltage drop, wire sizing, conduit fill, box fill, and AI troubleshooting in a single app. This one app replaces a codebook and a pocket calculator.
+                      <strong>Recommended: <a href="/get" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Ampora</a> (Free)</strong> &mdash; Covers NEC code lookups, voltage drop, wire sizing, conduit fill, box fill, and AI troubleshooting in a single app. This one app replaces a codebook and a pocket calculator.
                     </p>
                   </div>
                 </div>
@@ -917,7 +917,7 @@ export default function ElectricalAppsSoftwareGuidePage() {
                 <div className="bg-white/5 rounded-xl p-6">
                   <h3 className="font-semibold text-white mb-2">What is the best all-in-one app for electricians?</h3>
                   <p className="text-white/60 text-sm">
-                    <a href="https://apps.apple.com/us/app/ampora/id6753693522" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Ampora</a> is the closest thing to an all-in-one electrical app. It combines AI-powered NEC code reference, multiple electrical calculators (voltage drop, wire sizing, conduit fill, box fill), and AI troubleshooting in a single free app. For business operations (scheduling, invoicing), you will still need a separate project management tool.
+                    <a href="/get" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Ampora</a> is the closest thing to an all-in-one electrical app. It combines AI-powered NEC code reference, multiple electrical calculators (voltage drop, wire sizing, conduit fill, box fill), and AI troubleshooting in a single free app. For business operations (scheduling, invoicing), you will still need a separate project management tool.
                   </p>
                 </div>
 
@@ -969,7 +969,7 @@ export default function ElectricalAppsSoftwareGuidePage() {
             <section className="bg-gradient-to-r from-purple-900/30 to-cyan-900/30 rounded-2xl p-8 md:p-12 my-12 border border-purple-500/20">
               <div className="text-center">
                 <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full mb-4">
-                  <span className="text-sm text-white/80">&#9733; Free on the App Store</span>
+                  <span className="text-sm text-white/80">&#9733; Free on iOS &amp; Android</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">
                   Your Electrical Reference, Powered by AI
@@ -979,13 +979,13 @@ export default function ElectricalAppsSoftwareGuidePage() {
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                   <a
-                    href="https://apps.apple.com/us/app/ampora/id6753693522"
+                    href="/get"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"
                   >
                     <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                    Download on App Store
+                    Download Ampora Free
                   </a>
                   <Link
                     href="/features/nec-code-reference"

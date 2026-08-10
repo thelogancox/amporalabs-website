@@ -22,7 +22,8 @@ export function OrganizationJsonLd() {
       "Electrician Tools"
     ],
     "sameAs": [
-      "https://apps.apple.com/us/app/ampora/id6753693522"
+      "https://apps.apple.com/us/app/ampora/id6753693522",
+      "https://play.google.com/store/apps/details?id=com.korvatech.ampora"
     ],
     "brand": {
       "@type": "Brand",
@@ -59,7 +60,7 @@ export function SoftwareApplicationJsonLd() {
     "@type": "MobileApplication",
     "name": "Ampora - Electrical AI Assistant",
     "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "iOS 16.0 or later",
+    "operatingSystem": "iOS 16.0 or later, Android 8.0 or later",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -68,8 +69,8 @@ export function SoftwareApplicationJsonLd() {
     },
     "description": "AI-powered electrical calculator app with voltage drop calculator, wire sizing, conduit fill, arc flash analysis, load calculations, NEC code reference, and photo analysis for electricians. Used by professional electricians and electrical engineers for NEC-compliant field calculations.",
     "url": "https://amporalabs.com",
-    "downloadUrl": "https://apps.apple.com/us/app/ampora/id6753693522",
-    "installUrl": "https://apps.apple.com/us/app/ampora/id6753693522",
+    "downloadUrl": "https://amporalabs.com/get",
+    "installUrl": "https://amporalabs.com/get",
     "screenshot": "https://amporalabs.com/opengraph-image",
     "softwareVersion": "1.0",
     "datePublished": "2024-01-01",

@@ -60,7 +60,7 @@ export default function PhotoAnalysisPage() {
             Upload photos of electrical panels, wiring, and equipment. Get instant AI-powered analysis with safety recommendations and troubleshooting guidance.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-500 transition-colors"
@@ -194,7 +194,7 @@ export default function PhotoAnalysisPage() {
             Take a photo of any electrical equipment and get instant AI analysis. It's like having an expert looking over your shoulder.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"

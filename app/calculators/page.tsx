@@ -106,7 +106,7 @@ export default function CalculatorsPage() {
               Professional-grade electrical calculators for electricians. All calculations are NEC-compliant with built-in tables and formulas.
             </p>
             <a
-              href="https://apps.apple.com/us/app/ampora/id6753693522"
+              href="/get"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-500 transition-colors"
@@ -198,7 +198,7 @@ export default function CalculatorsPage() {
               Download Ampora to get all 6 electrical calculators plus AI assistant, NEC code reference, and more. Free to try.
             </p>
             <a
-              href="https://apps.apple.com/us/app/ampora/id6753693522"
+              href="/get"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"

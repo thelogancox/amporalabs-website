@@ -61,7 +61,7 @@ export default function AIAssistantPage() {
             Your personal electrician AI. Ask any electrical question and get instant, accurate answers backed by NEC code. Like having a master electrician in your pocket.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-500 transition-colors"
@@ -234,7 +234,7 @@ export default function AIAssistantPage() {
             Get answers to your electrical questions instantly. No registration required - just download and ask.
           </p>
           <a
-            href="https://apps.apple.com/us/app/ampora/id6753693522"
+            href="/get"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors"
